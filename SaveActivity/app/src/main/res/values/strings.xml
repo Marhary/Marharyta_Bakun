@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SaveActivity</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+</resources>
