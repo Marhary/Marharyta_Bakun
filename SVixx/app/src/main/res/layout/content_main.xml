@@ -16,13 +16,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:text="Hello, Name2!"/>
-=======
-        android:text="Hello From Name1!"/>
->>>>>>> 2d88b33... Change Name Branch Name 1
-=======
-        android:text="Hello, Guys!"/>
->>>>>>> 6989694... Change Main Layout Message
+
 </RelativeLayout>
