@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Layout2</string>
+    <string name="message">СООБЩЕНИЯ</string>
+    <string name="lady_first_name">Снежана Бондаренко</string>
+    <string name="lady1_message">Привет</string>
+    <string name="group1_name">СТАРОСТАТ</string>
+    <string name="group2_message">Спасибо</string>
+    <string name="princess">ПРИНЦЕССА</string>
+    <string name="numbers">123</string>
+    <string name="inna">Инна Скалозуб</string>
+    <string name="inna_message">A4</string>
+    <string name="number_message">27</string>
+    <string name="number_message2">Уходи</string>
+    <string name="data6">13:55</string>
+    <string name="slavinka_stepanenko">Slavinka Stepanenko</string>
+    <string name="slava_message">Звони</string>
+    <string name="text5">16:34</string>
+    <string name="data4">16:51</string>
+    <string name="data3">16:52</string>
+    <string name="data2">18:16</string>
+    <string name="data1">19:21</string>
+</resources>

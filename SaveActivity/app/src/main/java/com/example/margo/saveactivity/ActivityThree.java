@@ -6,21 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * Created by Margo on 10/4/2016.
- */
 
 public class ActivityThree extends Activity implements View.OnClickListener {
 
     Button btnYes;
     Button btnNo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.three);
 
-        btnYes = (Button)findViewById(R.id.btn_yes);
-        btnNo = (Button)findViewById(R.id.btn_no);
+        btnYes = (Button) findViewById(R.id.btn_yes);
+        btnNo = (Button) findViewById(R.id.btn_no);
 
         btnYes.setOnClickListener(this);
         btnNo.setOnClickListener(this);
