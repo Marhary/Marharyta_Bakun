@@ -1,18 +1,15 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout">
-
+        android:orientation="horizontal">
 
 
     </LinearLayout>
@@ -21,26 +18,27 @@
         android:id="@+id/btn_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:text="@string/btn_no"/>
+        android:layout_centerHorizontal="true"
+        android:text="@string/btn_no" />
 
     <TextView
-        android:text="This is ActivityThree"
+        style="@android:TextViewStyle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="218dp"
-        android:textSize="30sp"/>
+        android:text="@string/thrye"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/btn_yes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_yes"
         android:layout_above="@+id/btn_no"
         android:layout_alignLeft="@+id/btn_no"
-        android:layout_alignStart="@+id/btn_no" />
+        android:layout_alignStart="@+id/btn_no"
+        android:text="@string/btn_yes" />
 
 </RelativeLayout>
