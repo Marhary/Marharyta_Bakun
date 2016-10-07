@@ -9,7 +9,9 @@
         android:layout_height="wrap_content"
         android:text="@string/six"
         android:layout_centerInParent="true"
-        android:textSize="30sp">
+        android:textSize="30sp"
+        android:background="@drawable/custombackground"
+        >
     </TextView>
 
     <LinearLayout
@@ -22,13 +24,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_yes"/>
+            android:text="@string/btn_yes"
+            android:background="@drawable/custombackground"
+            />
 
         <Button
             android:id="@+id/btn_no"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btn_no"/>
+            android:text="@string/btn_no"
+            android:background="@drawable/custombackground"
+            />
     </LinearLayout>
 </RelativeLayout>
