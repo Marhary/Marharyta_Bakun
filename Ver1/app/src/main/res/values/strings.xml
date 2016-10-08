@@ -1,13 +1,7 @@
 <resources>
     <string name="app_name">Ver1</string>
     <string name="action_settings">Settings</string>
-    <string name="pink">Pink</string>
-    <string name="blue">Blue</string>
-    <string name="none">None</string>
-    <string name="colour">Colour</string>
-    <string name="itelic">Itelic</string>
-    <string name="bold">Bold</string>
-    <string name="show_text">Show text?</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
+    <string name="km">км/ч</string>
+    <string name="ms">м/с</string>
+    <string name="errorMsg">Error!</string>
 </resources>
