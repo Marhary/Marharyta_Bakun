@@ -45,8 +45,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/you_can_see"
-            android:onClick="BtnClick"/>
+            android:onClick="BtnClick"
+            android:text="@string/you_can_see" />
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

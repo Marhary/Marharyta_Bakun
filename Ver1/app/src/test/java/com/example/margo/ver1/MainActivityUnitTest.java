@@ -6,15 +6,13 @@ import android.view.TextureView;
 import com.example.margo.ver1.logic.Visible;
 
 import junit.framework.TestCase;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.robolectric.Robolectric;
-import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.annotation.Config;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -26,6 +24,19 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class MainActivityUnitTest extends TestCase {
+
+    @Mock
+    private TextureView text;
+
+    @BeforeClass
+    public static void start() {
+        System.out.print("start");
+    }
+
+    @AfterClass
+    public static void destroy() {
+        System.out.println("end");
+    }
 
     @Override
     protected void setUp() throws Exception {
@@ -59,19 +70,6 @@ public class MainActivityUnitTest extends TestCase {
         assertEquals(1, c.compareTo("Test"));
     }
 
-    @Mock
-    private TextureView text;
-
-    @BeforeClass
-    public static void start() {
-        System.out.print("start");
-    }
-
-    @AfterClass
-    public static void destroy() {
-        System.out.println("end");
-    }
-
     @Test
     public void testReturnValueDependentOnMethodParameter() {
         final String MOCKITO = "mockito";
@@ -98,13 +96,13 @@ public class MainActivityUnitTest extends TestCase {
     }
 
     @Test
-    public void BtnVisibilityTest(){
-        Visible vis=new Visible();
+    public void BtnVisibilityTest() {
+        Visible vis = new Visible();
         Visible visible = Mockito.spy(vis);
-      //  Mockito.when(visible.isVisibility()).thenReturn(true);
+        Mockito.when(visible.isVisibility()).thenReturn(true);
         doReturn(true).when(visible).isVisibility();
         System.err.println(visible.isVisibility());
-        assertEquals(visible.isVisibility(),true);
+        assertEquals(visible.isVisibility(), true);
 
 
     }

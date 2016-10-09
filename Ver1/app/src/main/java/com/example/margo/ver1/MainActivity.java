@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
                         double kmPerHour = Double.parseDouble(mKmPerHourEditText
                                 .getText().toString());
                         double meterPerSec = kmPerHour * 0.2777777777777778;
-                        mMeterPerSecEditText.setText(Double.valueOf(meterPerSec)
-                                .toString());
+                        mMeterPerSecEditText.setText(Double.valueOf(meterPerSec).toString());
                     } catch (NumberFormatException e) {
                         mMeterPerSecEditText.setText(R.string.errorMsg);
                         Log.d("Test", "e:" + e);
@@ -48,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         double meterPerSec = Double.parseDouble(mMeterPerSecEditText
                                 .getText().toString());
                         double kmPerHour = meterPerSec * 3.6;
-                        mKmPerHourEditText.setText(Double.valueOf(kmPerHour)
-                                .toString());
+                        mKmPerHourEditText.setText(Double.valueOf(kmPerHour).toString());
                     } catch (NumberFormatException e) {
                         mKmPerHourEditText.setText(R.string.errorMsg);
                         Log.d("Test", "e:" + e);
@@ -60,12 +58,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public boolean checker(String s){
-        int i,j;
-        for ( i=0, j=s.length()-1;i<=s.length()/2;i++,j--){
-            if(s.charAt(i)==s.charAt(j))
-                continue;
-            return false;
+
+    public boolean checker(String s) {
+        int i, j;
+        for (i = 0, j = s.length() - 1; i <= s.length() / 2; i++, j--) {
+            if (s.charAt(i) != s.charAt(j))
+                return false;
         }
         return true;
     }

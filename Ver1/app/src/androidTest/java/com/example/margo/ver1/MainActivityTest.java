@@ -1,9 +1,13 @@
 package com.example.margo.ver1;
 
 import android.support.test.filters.SmallTest;
+import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.EditText;
 
+import org.junit.runner.RunWith;
+
+@RunWith(AndroidJUnit4.class)
 public class MainActivityTest extends ActivityInstrumentationTestCase2 {
     public MainActivityTest() {
         super(MainActivity.class);
