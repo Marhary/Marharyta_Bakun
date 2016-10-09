@@ -27,13 +27,10 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_marginBottom">218dp</item>
     </item>
-
     <color name="MyRed">#FF0000</color>
-    <style name="MyRedTheme" parent="MyTheme">
+    <style name="MyRedTheme">
         <item name="titleColor">@color/MyRed</item>
     </style>
-
-
     <shape xmlns:android="http://schemas.android.com/apk/res/android"
         android:shape="rectangle">
         <solid android:color="@color/MyRed" />

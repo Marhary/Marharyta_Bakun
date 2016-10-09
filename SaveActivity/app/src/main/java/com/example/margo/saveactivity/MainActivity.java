@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
             intent=new Intent(this,ActivitySeven.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
     private void saveInstance(SharedPreferences pref){
