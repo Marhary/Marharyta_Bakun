@@ -4,4 +4,6 @@
     <string name="km">км/ч</string>
     <string name="ms">м/с</string>
     <string name="errorMsg">Error!</string>
+    <string name="you_can_see">You can see</string>
+    <string name="you_can_see_me">You can see me</string>
 </resources>

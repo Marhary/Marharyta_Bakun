@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else
             intent=new Intent(this,ActivitySeven.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
-
-   private void saveInstance(SharedPreferences pref){
+    private void saveInstance(SharedPreferences pref){
        SharedPreferences.Editor prefEdit=pref.edit();
        prefEdit.putBoolean("first_launch",false);
        prefEdit.apply();

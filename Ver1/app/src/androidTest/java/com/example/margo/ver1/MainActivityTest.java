@@ -9,14 +9,16 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2 {
         super(MainActivity.class);
 
     }
+
     @SmallTest
-    public void test_edittext(){
-        EditText et = (EditText)getActivity().findViewById(R.id.editTextKmPerHour);
+    public void test_edittext() {
+        EditText et = (EditText) getActivity().findViewById(R.id.editTextKmPerHour);
         assertNotNull(et);
     }
+
     @SmallTest
-    public void test_edittext2(){
-        EditText et = (EditText)getActivity().findViewById(R.id.editTextMetersPerSec);
+    public void test_edittext2() {
+        EditText et = (EditText) getActivity().findViewById(R.id.editTextMetersPerSec);
         assertNotNull(et);
     }
 

@@ -1,5 +1,6 @@
 package com.example.margo.ver1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    public void BtnClick(View view) {
+        startActivity(new Intent(this, ButnActivity.class));
     }
 }
 

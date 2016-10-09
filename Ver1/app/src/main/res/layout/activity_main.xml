@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.example.margo.ver1.MainActivity">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -20,29 +21,32 @@
             android:id="@+id/textViewKmPerHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/km"/>
+            android:text="@string/km" />
 
         <EditText
             android:id="@+id/editTextKmPerHour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:numeric="decimal"/>
+            android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/textViewMetersPerSec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
-            android:text="@string/ms"/>
+            android:text="@string/ms" />
 
         <EditText
             android:id="@+id/editTextMetersPerSec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:numeric="decimal"/>
+            android:inputType="numberDecimal" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/you_can_see"
+            android:onClick="BtnClick"/>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
