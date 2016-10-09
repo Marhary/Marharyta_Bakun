@@ -18,41 +18,22 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Iterator;
 
+import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class MainActivityUnitTest extends TestCase {
+public class MainActivityUnitTest {
 
     @Mock
     private TextureView text;
-
-    @BeforeClass
-    public static void start() {
-        System.out.print("start");
-    }
-
-    @AfterClass
-    public static void destroy() {
-        System.out.println("end");
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
 
     @SmallTest
     public void testchecker() {
         MainActivity ma = new MainActivity();
         boolean result = ma.checker("MOM");
         assertEquals(true, result);
-    }
-
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
     }
 
     @Test
@@ -99,11 +80,8 @@ public class MainActivityUnitTest extends TestCase {
     public void BtnVisibilityTest() {
         Visible vis = new Visible();
         Visible visible = Mockito.spy(vis);
-        Mockito.when(visible.isVisibility()).thenReturn(true);
-        doReturn(true).when(visible).isVisibility();
+        doReturn(false).when(visible).isVisibility();
         System.err.println(visible.isVisibility());
-        assertEquals(visible.isVisibility(), true);
-
-
+        assertEquals(visible.isVisibility(), false);
     }
 }
