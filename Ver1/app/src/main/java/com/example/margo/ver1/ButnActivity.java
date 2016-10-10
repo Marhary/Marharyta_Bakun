@@ -18,8 +18,7 @@ public class ButnActivity extends AppCompatActivity {
         button = ((Button) findViewById(R.id.you_can_see_me));
         if (visible.isVisibility()) {
             button.setVisibility(View.VISIBLE);
-        }
-        else
+        } else
             button.setVisibility(View.GONE);
 
     }

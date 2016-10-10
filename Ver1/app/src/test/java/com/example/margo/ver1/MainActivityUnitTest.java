@@ -5,10 +5,6 @@ import android.view.TextureView;
 
 import com.example.margo.ver1.logic.Visible;
 
-import junit.framework.TestCase;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
