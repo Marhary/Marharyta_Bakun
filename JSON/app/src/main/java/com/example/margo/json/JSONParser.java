@@ -15,17 +15,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class JSONParser extends AsyncTask<Void,Void,Boolean>{
+public class JSONParser extends AsyncTask<Void, Void, Boolean> {
     Context c;
-    String jsonURL;
+    String jsonData;
     Spinner sp;
-    ProgressDialog pd;
 
+    ProgressDialog pd;
     ArrayList<String> users = new ArrayList<>();
 
-    public JSONParser(Context c, String jsonURL, Spinner sp) {
+    public JSONParser(Context c, String jsonData, Spinner sp) {
         this.c = c;
-        this.jsonURL = jsonURL;
+        this.jsonData = jsonData;
         this.sp = sp;
     }
 
@@ -47,16 +47,15 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean>{
     protected void onPostExecute(Boolean isParsed) {
         super.onPostExecute(isParsed);
         pd.dismiss();
-        if(isParsed)
-        {
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(c,android.R.layout.simple_list_item_1,users);
+        if (isParsed) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(c, android.R.layout.simple_list_item_1, users);
             sp.setAdapter(adapter);
 
-            sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                   Toast.makeText(c,users.get(i), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(c, users.get(i), Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -64,26 +63,22 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean>{
 
                 }
             });
-
-        }else
-        {
-            Toast.makeText(c,"Unable to parse",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(c, "Unable to parse", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private Boolean parse()
-    {
-        try{
+    private Boolean parse() {
+        try {
             JSONArray ja = new JSONArray(jsonData);
             JSONObject jo;
 
             users.clear();
-            for (int i=0;i<ja.length();i++)
-            {
+            for (int i = 0; i < ja.length(); i++) {
                 jo = ja.getJSONObject(i);
 
-            String name = jo.getString("name");
-            users.add(name);
+                String name = jo.getString("name");
+                users.add(name);
             }
             return true;
 
@@ -93,3 +88,5 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean>{
         }
     }
 }
+
+

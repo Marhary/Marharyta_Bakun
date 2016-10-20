@@ -1,6 +1,7 @@
 package com.example.margo.json;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -14,14 +15,14 @@ import java.net.HttpURLConnection;
 
 public class JSONDownloader extends AsyncTask<Void,Void,String> {
 
-    String c;
-    MainActivity jsonURL;
+    Context c;
+    String jsonURL;
     Spinner sp;
     ProgressDialog pd;
 
-    public JSONDownloader(MainActivity jsonURL, String c, Spinner sp) {
+    public JSONDownloader(String jsonURL, Context c, Spinner sp) {
         this.jsonURL = jsonURL;
-        this.c = c;
+        this.c =c;
         this.sp = sp;
     }
 
@@ -35,12 +36,13 @@ public class JSONDownloader extends AsyncTask<Void,Void,String> {
     }
 
     @Override
-    protected String doInBackground(Void... params) {
+    protected String doInBackground(Void... voids) {
         return this.download();
     }
 
     @Override
-    protected void onPostExecute(String s) {
+    protected void onPostExecute(String jsonData) {
+
         super.onPostExecute(jsonData);
 
         pd.dismiss();
