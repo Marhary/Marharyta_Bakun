@@ -27,11 +27,11 @@ public class MainActivityListFragment extends ListFragment {
         notes = new ArrayList<Note>();
         notes.add(new Note("This is a new note title", "This is the body of note",
                 Note.Category.PERSONAL));
-        notes.add(new Note("This is a new note title", "This is the body of note",
+        notes.add(new Note("Blablabla", "This is the body of note jhfyrtr",
                 Note.Category.JOB));
-        notes.add(new Note("This is a new note title", "This is the body of note",
+        notes.add(new Note("Cat", "fast dog",
                 Note.Category.INTERESTING));
-        notes.add(new Note("This is a new note title", "This is the body of note",
+        notes.add(new Note("Happy", "This is happy",
                 Note.Category.IDEAS));
 
         noteAdapter = new NoteAdapter(getActivity(), notes);
@@ -45,7 +45,7 @@ public class MainActivityListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        
+
         launchNoteDetailActivity(position);
     }
 
