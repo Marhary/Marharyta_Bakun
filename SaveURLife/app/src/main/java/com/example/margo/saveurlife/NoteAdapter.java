@@ -44,7 +44,6 @@ public class NoteAdapter extends ArrayAdapter<Note>{
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-
         viewHolder.title.setText(note.getTitle());
         viewHolder.note.setText(note.getMessage());
         viewHolder.noteIcon.setImageResource(note.getAssociatedDrawable());
