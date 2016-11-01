@@ -9,8 +9,8 @@
     android:paddingLeft="12dp">
 
     <ImageButton
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/editNoteButton"
         android:src="@drawable/p"
         android:layout_alignParentTop="true"
@@ -33,6 +33,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/editNoteTitle"
         android:inputType="text"
+        android:layout_toRightOf="@+id/editNoteButton"
         />
 
     <ScrollView

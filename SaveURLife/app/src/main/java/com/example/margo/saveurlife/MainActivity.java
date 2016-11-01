@@ -8,10 +8,12 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String NOTE_ID_EXTRA = "com.example.margo.saveurlife.Note Identifier";
-    public static final String NOTE_TITLE_EXTRA = "com.example.margo.saveurlife.Note Title";
-    public static final String NOTE_MESSAGE_EXTRA = "com.example.margo.saveurlife.Note Message";
-    public static final String NOTE_CATEGORY_EXTRA = "com.example.margo.saveurlife.Note Category";
+    public static final String NOTE_ID_EXTRA = "com.example.margo.saveurlife.Identifier";
+    public static final String NOTE_TITLE_EXTRA = "com.example.margo.saveurlife.Title";
+    public static final String NOTE_MESSAGE_EXTRA = "com.example.margo.saveurlife.Message";
+    public static final String NOTE_CATEGORY_EXTRA = "com.example.margo.saveurlife.Category";
+    public static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "com.example.margo.saveurlife.Fragment_To_Load";
+    public enum FragmentToLaunch{ VIEW, EDIT }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
