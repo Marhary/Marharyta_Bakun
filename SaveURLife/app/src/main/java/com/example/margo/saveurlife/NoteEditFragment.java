@@ -1,6 +1,8 @@
 package com.example.margo.saveurlife;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,9 @@ import android.widget.ImageButton;
  */
 public class NoteEditFragment extends Fragment {
 
+    private ImageButton noteCatButton;
+    private Note.Category savedButtonCategory;
+    private AlertDialog categoryDialogObject;
 
     public NoteEditFragment() {
         // Required empty public constructor
@@ -30,7 +35,7 @@ public class NoteEditFragment extends Fragment {
 
         EditText title = (EditText) fragmentLayout.findViewById(R.id.editNoteTitle);
         EditText message = (EditText) fragmentLayout.findViewById(R.id.editNoteMessage);
-        ImageButton noteCatButton = (ImageButton) fragmentLayout.findViewById(R.id.editNoteButton);
+        noteCatButton = (ImageButton) fragmentLayout.findViewById(R.id.editNoteButton);
 
         Intent intent = getActivity().getIntent();
         title.setText(intent.getExtras().getString(MainActivity.NOTE_TITLE_EXTRA));
@@ -39,7 +44,51 @@ public class NoteEditFragment extends Fragment {
         Note.Category noteCat = (Note.Category) intent.getSerializableExtra(MainActivity.NOTE_CATEGORY_EXTRA);
         noteCatButton.setImageResource(Note.categoryToDrawable(noteCat));
 
+        buildCategoryDialog();
+
+        noteCatButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                categoryDialogObject.show();
+            }
+        });
+
         return fragmentLayout;
+    }
+
+    private void buildCategoryDialog() {
+        final String[] categories = new String[]{"Personal", "Ideas", "Interesting", "Job"};
+        AlertDialog.Builder categoryBuilder = new AlertDialog.Builder(getActivity());
+        categoryBuilder.setTitle("Choose Note Type");
+
+        categoryBuilder.setSingleChoiceItems(categories, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                //dismisses dialog window
+                categoryDialogObject.cancel();
+
+                switch (item) {
+                    case 0:
+                        savedButtonCategory = Note.Category.PERSONAL;
+                        noteCatButton.setImageResource(R.drawable.p);
+                        break;
+                    case 1:
+                        savedButtonCategory = Note.Category.IDEAS;
+                        noteCatButton.setImageResource(R.drawable.t);
+                        break;
+                    case 2:
+                        savedButtonCategory = Note.Category.INTERESTING;
+                        noteCatButton.setImageResource(R.drawable.q);
+                        break;
+                    case 3:
+                        savedButtonCategory = Note.Category.JOB;
+                        noteCatButton.setImageResource(R.drawable.f);
+                        break;
+                }
+            }
+        });
+
+        categoryDialogObject = categoryBuilder.create();
     }
 
 }
