@@ -25,6 +25,8 @@ public class NoteEditFragment extends Fragment {
     private Note.Category savedButtonCategory;
     private AlertDialog categoryDialogObject, confirmDialogObject;
 
+    private static final String MODIFIED_CATEGORY = "Modified Category";
+
     public NoteEditFragment() {
         // Required empty public constructor
     }
@@ -33,6 +35,10 @@ public class NoteEditFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        if (savedInstanceState != null) {
+            savedButtonCategory = (Note.Category) savedInstanceState.get(MODIFIED_CATEGORY);
+        }
 
         View fragmentLayout = inflater.inflate(R.layout.fragment_note_edit, container, false);
 
@@ -45,28 +51,40 @@ public class NoteEditFragment extends Fragment {
         title.setText(intent.getExtras().getString(MainActivity.NOTE_TITLE_EXTRA));
         message.setText(intent.getExtras().getString(MainActivity.NOTE_MESSAGE_EXTRA));
 
-        Note.Category noteCat = (Note.Category) intent.getSerializableExtra(MainActivity.NOTE_CATEGORY_EXTRA);
-        savedButtonCategory = noteCat;
-        noteCatButton.setImageResource(Note.categoryToDrawable(noteCat));
+        //when i change orientation category is saved
+        if (savedButtonCategory != null) {
+            noteCatButton.setImageResource(Note.categoryToDrawable(savedButtonCategory));
+            //came from list fragment so just do everything noormaly
+        } else {
+            Note.Category noteCat = (Note.Category) intent.getSerializableExtra(MainActivity.NOTE_CATEGORY_EXTRA);
+            savedButtonCategory = noteCat;
+            noteCatButton.setImageResource(Note.categoryToDrawable(noteCat));
+        }
 
         buildCategoryDialog();
         buildConfirmDialog();
 
-        noteCatButton.setOnClickListener(new View.OnClickListener(){
+        noteCatButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 categoryDialogObject.show();
             }
         });
 
-        savedButton.setOnClickListener(new View.OnClickListener(){
+        savedButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 confirmDialogObject.show();
             }
         });
 
         return fragmentLayout;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putSerializable(MODIFIED_CATEGORY, savedButtonCategory);
     }
 
     private void buildCategoryDialog() {
@@ -104,7 +122,7 @@ public class NoteEditFragment extends Fragment {
         categoryDialogObject = categoryBuilder.create();
     }
 
-    private void buildConfirmDialog(){
+    private void buildConfirmDialog() {
         AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(getActivity());
         confirmBuilder.setTitle("Are you sure?");
         confirmBuilder.setMessage("Are you sure you want to save the note?");
