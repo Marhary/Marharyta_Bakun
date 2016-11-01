@@ -1,5 +1,6 @@
 package com.example.margo.saveurlife;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String NOTE_MESSAGE_EXTRA = "com.example.margo.saveurlife.Message";
     public static final String NOTE_CATEGORY_EXTRA = "com.example.margo.saveurlife.Category";
     public static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "com.example.margo.saveurlife.Fragment_To_Load";
-    public enum FragmentToLaunch{ VIEW, EDIT }
+
+    public enum FragmentToLaunch{ VIEW, EDIT, CREATE }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }else if (id == R.id.action_add_note){
+            Intent intent = new Intent(this, NoteDetailActivity.class);
+            intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
+            startActivity(intent);
             return true;
         }
 
