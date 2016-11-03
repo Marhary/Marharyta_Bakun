@@ -140,12 +140,23 @@ public class NoteEditFragment extends Fragment {
                 Log.d("Save Note", "Note title: " + title.getText() + "Note message: " +
                         message.getText() + "Note category: " + savedButtonCategory);
 
+                NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+                dbAdapter.open();
+
+                if (newNote){
+                    //if its a new note create in database
+                    dbAdapter.createNote(title.getText() + "", message.getText() + "",
+                            (savedButtonCategory == null)? Note.Category.PERSONAL : savedButtonCategory);
+                }else {
+                    //if old update
+                }
+
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
         });
 
-        confirmBuilder.setNegativeButton("Cansel", new DialogInterface.OnClickListener() {
+        confirmBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //do nothing

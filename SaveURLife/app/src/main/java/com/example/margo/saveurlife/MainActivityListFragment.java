@@ -29,15 +29,10 @@ public class MainActivityListFragment extends ListFragment {
     public void onActivityCreated(Bundle saveInstanceState) {
         super.onActivityCreated(saveInstanceState);
 
-        notes = new ArrayList<Note>();
-        notes.add(new Note("This is a new note title", "This is the body of note",
-                Note.Category.PERSONAL));
-        notes.add(new Note("Blablabla", "This is the body of note jhfyrtr",
-                Note.Category.JOB));
-        notes.add(new Note("Cat", "fast dog",
-                Note.Category.INTERESTING));
-        notes.add(new Note("Happy", "This is happy",
-                Note.Category.IDEAS));
+        NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+        dbAdapter.open();
+        notes = dbAdapter.getAllNotes();
+        dbAdapter.close();
 
         noteAdapter = new NoteAdapter(getActivity(), notes);
 
