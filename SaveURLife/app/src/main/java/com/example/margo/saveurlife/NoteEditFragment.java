@@ -28,6 +28,7 @@ public class NoteEditFragment extends Fragment {
     private static final String MODIFIED_CATEGORY = "Modified Category";
 
     private boolean newNote = false;
+    private long noteId = 0;
 
     public NoteEditFragment() {
         // Required empty public constructor
@@ -57,6 +58,7 @@ public class NoteEditFragment extends Fragment {
         Intent intent = getActivity().getIntent();
         title.setText(intent.getExtras().getString(MainActivity.NOTE_TITLE_EXTRA, ""));
         message.setText(intent.getExtras().getString(MainActivity.NOTE_MESSAGE_EXTRA, ""));
+        noteId = intent.getExtras().getLong(MainActivity.NOTE_ID_EXTRA, 0);
 
         //when i change orientation category is saved
         if (savedButtonCategory != null) {
@@ -149,7 +151,10 @@ public class NoteEditFragment extends Fragment {
                             (savedButtonCategory == null)? Note.Category.PERSONAL : savedButtonCategory);
                 }else {
                     //if old update
+                    dbAdapter.updateNote(noteId, title.getText() + "" , message.getText() + "",savedButtonCategory);
                 }
+
+                dbAdapter.close();
 
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);

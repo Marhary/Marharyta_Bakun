@@ -10,4 +10,5 @@
     <string name="create_fragment_title">Create Note</string>
     <string name="all_note_title">All Notes</string>
     <string name="edit_note_title">Edit Note</string>
+    <string name="delete_menu">Delete</string>
 </resources>
