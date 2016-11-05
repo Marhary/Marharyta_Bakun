@@ -64,6 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/saveNote"
+        android:background="#99ca26"
         android:text="@string/save_note_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

@@ -8,6 +8,20 @@
         <item name="colorAccent">#fe8924</item>
     </style>
 
+    <style name="AppThemeS" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#3cb6e3</item>
+        <item name="colorPrimaryDark">#1799ca</item>
+        <item name="colorAccent">#3cb6e3</item>
+    </style>
+
+    <style name="AppThemeW" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#99ca26</item>
+        <item name="colorPrimaryDark">#53a527</item>
+        <item name="colorAccent">#99ca26</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
