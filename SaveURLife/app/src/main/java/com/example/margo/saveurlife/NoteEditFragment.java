@@ -40,7 +40,7 @@ public class NoteEditFragment extends Fragment {
                              Bundle savedInstanceState) {
         //grab the bundle that sends along whether creating a new note
         Bundle bundle = this.getArguments();
-        if (bundle !=null){
+        if (bundle != null) {
             newNote = bundle.getBoolean(NoteDetailActivity.NEW_NOTE_EXTRA, false);
         }
 
@@ -64,7 +64,7 @@ public class NoteEditFragment extends Fragment {
         if (savedButtonCategory != null) {
             noteCatButton.setImageResource(Note.categoryToDrawable(savedButtonCategory));
             //came from list fragment so just do everything noormaly
-        } else if (!newNote){
+        } else if (!newNote) {
             Note.Category noteCat = (Note.Category) intent.getSerializableExtra(MainActivity.NOTE_CATEGORY_EXTRA);
             savedButtonCategory = noteCat;
             noteCatButton.setImageResource(Note.categoryToDrawable(noteCat));
@@ -145,13 +145,13 @@ public class NoteEditFragment extends Fragment {
                 NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
                 dbAdapter.open();
 
-                if (newNote){
+                if (newNote) {
                     //if its a new note create in database
                     dbAdapter.createNote(title.getText() + "", message.getText() + "",
-                            (savedButtonCategory == null)? Note.Category.PERSONAL : savedButtonCategory);
-                }else {
+                            (savedButtonCategory == null) ? Note.Category.PERSONAL : savedButtonCategory);
+                } else {
                     //if old update
-                    dbAdapter.updateNote(noteId, title.getText() + "" , message.getText() + "",savedButtonCategory);
+                    dbAdapter.updateNote(noteId, title.getText() + "", message.getText() + "", savedButtonCategory);
                 }
 
                 dbAdapter.close();

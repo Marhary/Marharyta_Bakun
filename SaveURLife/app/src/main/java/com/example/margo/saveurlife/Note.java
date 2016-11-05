@@ -54,9 +54,9 @@ public class Note {
         return categoryToDrawable(category);
     }
 
-    public static int categoryToDrawable(Category noteCategory){
+    public static int categoryToDrawable(Category noteCategory) {
 
-        switch (noteCategory){
+        switch (noteCategory) {
             case PERSONAL:
                 return R.drawable.p;
             case IDEAS:

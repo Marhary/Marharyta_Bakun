@@ -52,7 +52,7 @@ public class MainActivityListFragment extends ListFragment {
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
         MenuInflater menuInflater = getActivity().getMenuInflater();
@@ -60,36 +60,36 @@ public class MainActivityListFragment extends ListFragment {
     }
 
     @Override
-    public boolean onContextItemSelected(MenuItem item){
+    public boolean onContextItemSelected(MenuItem item) {
 
         //give position which i pressed on
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int rowPosition = info.position;
         Note note = (Note) getListAdapter().getItem(rowPosition);
 
-    switch (item.getItemId()){
-        case R.id.edit:
+        switch (item.getItemId()) {
+            case R.id.edit:
 
-            launchNoteDetailActivity(MainActivity.FragmentToLaunch.EDIT, rowPosition);
-            Log.d("Menu Clicks", "We pressed edit");
-            return true;
+                launchNoteDetailActivity(MainActivity.FragmentToLaunch.EDIT, rowPosition);
+                Log.d("Menu Clicks", "We pressed edit");
+                return true;
 
-        case R.id.delete:
-            NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
-            dbAdapter.open();
-            dbAdapter.deleteNote(note.getId());
+            case R.id.delete:
+                NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+                dbAdapter.open();
+                dbAdapter.deleteNote(note.getId());
 
-            notes.clear();
-            notes.addAll(dbAdapter.getAllNotes());
-            noteAdapter.notifyDataSetChanged();
-            
-            dbAdapter.close();
-    }
+                notes.clear();
+                notes.addAll(dbAdapter.getAllNotes());
+                noteAdapter.notifyDataSetChanged();
+
+                dbAdapter.close();
+        }
 
         return super.onContextItemSelected(item);
     }
 
-    private void launchNoteDetailActivity(MainActivity.FragmentToLaunch ftl, int position){
+    private void launchNoteDetailActivity(MainActivity.FragmentToLaunch ftl, int position) {
 
         //note information
         Note note = (Note) getListAdapter().getItem(position);
@@ -103,7 +103,7 @@ public class MainActivityListFragment extends ListFragment {
         intent.putExtra(MainActivity.NOTE_CATEGORY_EXTRA, note.getCategory());
         intent.putExtra(MainActivity.NOTE_ID_EXTRA, note.getId());
 
-        switch (ftl){
+        switch (ftl) {
             case VIEW:
                 intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, MainActivity.FragmentToLaunch.VIEW);
                 break;

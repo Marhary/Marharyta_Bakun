@@ -36,7 +36,7 @@ public class NotebookDbAdapter {
 
     private NotebookDbHelper notebookDbHelper;
 
-    public NotebookDbAdapter(Context ctx){
+    public NotebookDbAdapter(Context ctx) {
         context = ctx;
     }
 
@@ -46,11 +46,11 @@ public class NotebookDbAdapter {
         return this;
     }
 
-    public void close(){
+    public void close() {
         notebookDbHelper.close();
     }
 
-    public Note createNote(String title, String message, Note.Category category){
+    public Note createNote(String title, String message, Note.Category category) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, title);
         values.put(COLUMN_MESSAGE, message);
@@ -68,11 +68,11 @@ public class NotebookDbAdapter {
         return newNote;
     }
 
-    public long deleteNote(long idToDelete){
+    public long deleteNote(long idToDelete) {
         return sqlDB.delete(NOTE_TABLE, COLUMN_ID + " = " + idToDelete, null);
     }
 
-    public long updateNote(long idToUpdate, String newTitle, String newMessage, Note.Category newCategory){
+    public long updateNote(long idToUpdate, String newTitle, String newMessage, Note.Category newCategory) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, newTitle);
         values.put(COLUMN_MESSAGE, newMessage);
@@ -82,12 +82,12 @@ public class NotebookDbAdapter {
         return sqlDB.update(NOTE_TABLE, values, COLUMN_ID + " = " + idToUpdate, null);
     }
 
-    public ArrayList<Note> getAllNotes(){
+    public ArrayList<Note> getAllNotes() {
         ArrayList<Note> notes = new ArrayList<Note>();
 
-        Cursor cursor = sqlDB.query(NOTE_TABLE, allColumns, null, null, null, null, null );
+        Cursor cursor = sqlDB.query(NOTE_TABLE, allColumns, null, null, null, null, null);
 
-        for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()){
+        for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
             Note note = cursorToNote(cursor);
             notes.add(note);
         }
@@ -97,8 +97,8 @@ public class NotebookDbAdapter {
         return notes;
     }
 
-    private Note cursorToNote(Cursor cursor){
-        Note newNote = new Note (cursor.getString(1), cursor.getString(2),
+    private Note cursorToNote(Cursor cursor) {
+        Note newNote = new Note(cursor.getString(1), cursor.getString(2),
                 Note.Category.valueOf(cursor.getString(3)), cursor.getLong(0), cursor.getLong(4));
         return newNote;
     }

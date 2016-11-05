@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.margo.saveurlife">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,17 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NoteDetailActivity"
+        <activity
+            android:name=".NoteDetailActivity"
             android:label="@string/edit_fragment_title"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeW"/>
-
-        <activity android:name=".AppPreferences"
+            android:theme="@style/AppThemeW" />
+        <activity
+            android:name=".AppPreferences"
             android:label="@string/title_preferences"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppThemeS">
-
-        </activity>
+            android:theme="@style/AppThemeS"></activity>
+        <activity android:name=".AuthActivity"></activity>
     </application>
 
 </manifest>

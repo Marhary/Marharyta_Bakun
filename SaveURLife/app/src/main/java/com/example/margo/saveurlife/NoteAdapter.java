@@ -11,20 +11,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class NoteAdapter extends ArrayAdapter<Note>{
+public class NoteAdapter extends ArrayAdapter<Note> {
 
-    public static class ViewHolder{
+    public static class ViewHolder {
         TextView title;
         TextView note;
         ImageView noteIcon;
     }
 
-    public NoteAdapter(Context context, ArrayList<Note> notes){
+    public NoteAdapter(Context context, ArrayList<Note> notes) {
         super(context, 0, notes);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         Note note = getItem(position);
 
@@ -40,7 +40,7 @@ public class NoteAdapter extends ArrayAdapter<Note>{
             viewHolder.note = (TextView) convertView.findViewById(R.id.listItemNoteBody);
             viewHolder.noteIcon = (ImageView) convertView.findViewById(R.id.listItemNoteImg);
             convertView.setTag(viewHolder);
-        }else {
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
