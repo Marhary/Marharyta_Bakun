@@ -1,11 +1,15 @@
 package com.example.margo.saveurlife;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        loadPreferences();
         
     }
 
@@ -53,5 +58,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadPreferences(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        boolean isBackgroundDark = sharedPreferences.getBoolean("background_color", false);
+        if (isBackgroundDark){
+            LinearLayout mainLayout = (LinearLayout) findViewById(R.id.content_main);
+            mainLayout.setBackgroundColor(Color.parseColor("#3c3f41"));
+        }
+
+        String notebookTitle = sharedPreferences.getString("title", "SaveURLife");
+        setTitle(notebookTitle);
     }
 }
