@@ -10,9 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.margo.saveurlife.auth.VkAuthorizer;
+import com.example.margo.saveurlife.settings.AppPreferences;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         }
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         id = getPreferences(MODE_PRIVATE).getInt("Id", -1);
-        if (id > 0)
-            Toast.makeText(this, Integer.toString(id), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -46,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         loadPreferences();
-
 
     }
 

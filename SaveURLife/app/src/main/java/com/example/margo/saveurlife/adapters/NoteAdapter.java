@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife;
+package com.example.margo.saveurlife.adapters;
 
 
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.margo.saveurlife.Note;
+import com.example.margo.saveurlife.R;
 
 import java.util.ArrayList;
 

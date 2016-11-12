@@ -14,7 +14,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.margo.saveurlife.adapters.NoteAdapter;
+import com.example.margo.saveurlife.adapters.NotebookDbAdapter;
+import com.example.margo.saveurlife.parce.NoteJsonDeserializer;
+import com.example.margo.saveurlife.parce.NoteJsonSerializer;
+
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,7 +39,13 @@ public class MainActivityListFragment extends ListFragment {
         dbAdapter.open();
         notes = dbAdapter.getAllNotes();
         dbAdapter.close();
-
+        try {
+            final String execute = new NoteJsonSerializer().execute(notes);
+            ArrayList<Note> list = new NoteJsonDeserializer().execute(execute);
+            final StringBuilder stringBuilder = new StringBuilder();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
         noteAdapter = new NoteAdapter(getActivity(), notes);
 
         setListAdapter(noteAdapter);

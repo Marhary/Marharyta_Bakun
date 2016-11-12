@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife;
+package com.example.margo.saveurlife.adapters;
 
 
 import android.content.ContentValues;
@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import com.example.margo.saveurlife.Note;
 
 import java.util.ArrayList;
 import java.util.Calendar;

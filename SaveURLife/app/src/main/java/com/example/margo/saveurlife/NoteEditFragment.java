@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.margo.saveurlife.adapters.NotebookDbAdapter;
+
 
 /**
  * A simple {@link Fragment} subclass.
