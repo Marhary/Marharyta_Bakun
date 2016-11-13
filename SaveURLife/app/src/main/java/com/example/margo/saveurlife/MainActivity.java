@@ -1,5 +1,6 @@
 package com.example.margo.saveurlife;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -7,12 +8,15 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.example.margo.saveurlife.auth.VkAuthorizer;
 import com.example.margo.saveurlife.settings.AppPreferences;
+
+import cloud_controller.ServletPostAsyncTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         loadPreferences();
+
+        new ServletPostAsyncTask().execute(new Pair<Context, String>(this, "Marhary"));
 
     }
 
