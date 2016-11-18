@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife;
+package com.github.marhary.saveurlife;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.example.margo.saveurlife.auth.VkAuthorizer;
+import com.github.marhary.saveurlife.auth.VkAuthorizer;
 
 public class AuthActivity extends AppCompatActivity {
     private WebView webView;

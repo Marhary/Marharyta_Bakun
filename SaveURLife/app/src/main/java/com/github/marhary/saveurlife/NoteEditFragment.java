@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife;
+package com.github.marhary.saveurlife;
 
 
 import android.app.AlertDialog;
@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.example.margo.saveurlife.adapters.NotebookDbAdapter;
+import com.github.marhary.saveurlife.adapters.NotebookDbAdapter;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife;
+package com.github.marhary.saveurlife;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

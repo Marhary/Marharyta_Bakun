@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife.settings;
+package com.github.marhary.saveurlife.settings;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.margo.saveurlife.R;
+import com.github.marhary.saveurlife.R;
 
 public class AppPreferences extends AppCompatActivity {
 

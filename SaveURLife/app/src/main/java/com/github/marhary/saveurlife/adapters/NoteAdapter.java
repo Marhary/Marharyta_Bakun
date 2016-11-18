@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife.adapters;
+package com.github.marhary.saveurlife.adapters;
 
 
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.margo.saveurlife.Note;
-import com.example.margo.saveurlife.R;
+import com.github.marhary.saveurlife.Note;
+import com.github.marhary.saveurlife.R;
 
 import java.util.ArrayList;
 

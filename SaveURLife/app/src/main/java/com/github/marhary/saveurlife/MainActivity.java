@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife;
+package com.github.marhary.saveurlife;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
-import com.example.margo.saveurlife.auth.VkAuthorizer;
-import com.example.margo.saveurlife.settings.AppPreferences;
+import com.github.marhary.saveurlife.auth.VkAuthorizer;
+import com.github.marhary.saveurlife.settings.AppPreferences;
 
 import cloud_controller.ServletPostAsyncTask;
 

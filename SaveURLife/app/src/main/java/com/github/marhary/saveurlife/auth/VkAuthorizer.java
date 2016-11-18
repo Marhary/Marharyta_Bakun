@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife.auth;
+package com.github.marhary.saveurlife.auth;
 
 
 import java.util.Locale;

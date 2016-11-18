@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife.adapters;
+package com.github.marhary.saveurlife.adapters;
 
 
 import android.content.ContentValues;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.margo.saveurlife.Note;
+import com.github.marhary.saveurlife.Note;
 
 import java.util.ArrayList;
 import java.util.Calendar;

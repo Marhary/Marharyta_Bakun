@@ -1,8 +1,8 @@
-package com.example.margo.saveurlife.parce;
+package com.github.marhary.saveurlife.parce;
 
 
-import com.example.margo.saveurlife.asyncOperation.AsyncOperation;
-import com.example.margo.saveurlife.Note;
+import com.github.marhary.saveurlife.asyncOperation.AsyncOperation;
+import com.github.marhary.saveurlife.Note;
 
 import org.json.JSONArray;
 import org.json.JSONException;

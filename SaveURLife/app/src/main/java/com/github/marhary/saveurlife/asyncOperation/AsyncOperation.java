@@ -1,4 +1,4 @@
-package com.example.margo.saveurlife.asyncOperation;
+package com.github.marhary.saveurlife.asyncOperation;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
