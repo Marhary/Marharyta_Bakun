@@ -15,5 +15,5 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/authorization"
-        android:title="Authorization"/>
+        android:title="@string/authorization"/>
 </menu>

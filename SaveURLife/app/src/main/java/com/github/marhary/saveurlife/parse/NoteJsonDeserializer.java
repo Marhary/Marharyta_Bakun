@@ -1,4 +1,4 @@
-package com.github.marhary.saveurlife.parce;
+package com.github.marhary.saveurlife.parse;
 
 import com.github.marhary.saveurlife.asyncOperation.AsyncOperation;
 import com.github.marhary.saveurlife.Note;

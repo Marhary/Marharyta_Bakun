@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/mainActivityFrag"
-        android:name="com.github.marhary.saveurlife.MainActivityListFragment"
+        android:name="com.github.marhary.saveurlife.fragments.MainActivityListFragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 

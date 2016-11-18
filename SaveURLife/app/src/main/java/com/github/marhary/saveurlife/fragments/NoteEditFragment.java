@@ -1,4 +1,4 @@
-package com.github.marhary.saveurlife;
+package com.github.marhary.saveurlife.fragments;
 
 
 import android.app.AlertDialog;
@@ -14,6 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.github.marhary.saveurlife.MainActivity;
+import com.github.marhary.saveurlife.Note;
+import com.github.marhary.saveurlife.NoteDetailActivity;
+import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.adapters.NotebookDbAdapter;
 
 

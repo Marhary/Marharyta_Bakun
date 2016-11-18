@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_add_note">Добавить заметку</string>
+    <string name="action_settings">Настройки</string>
+    <string name="all_note_title">Все заметки</string>
+    <string name="create_fragment_title">Создать заметку</string>
+    <string name="delete_menu">Удалить</string>
+    <string name="edit_fragment_title">Редактировать заметку</string>
+    <string name="edit_note_title">Редактировать заметку</string>
+    <string name="hello_blank_fragment"></string>
+    <string name="menu_edit">Редактировать</string>
+    <string name="save_note_button">Сохранить</string>
+    <string name="title_preferences">Настройки</string>
+    <string name="authorization">Авторизация</string>
+</resources>

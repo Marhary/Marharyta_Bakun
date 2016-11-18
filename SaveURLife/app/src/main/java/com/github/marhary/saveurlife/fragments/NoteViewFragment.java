@@ -1,4 +1,4 @@
-package com.github.marhary.saveurlife;
+package com.github.marhary.saveurlife.fragments;
 
 
 import android.content.Intent;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.github.marhary.saveurlife.MainActivity;
+import com.github.marhary.saveurlife.Note;
+import com.github.marhary.saveurlife.R;
 
 
 /**

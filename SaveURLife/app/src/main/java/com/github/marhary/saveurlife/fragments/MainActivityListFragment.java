@@ -1,4 +1,4 @@
-package com.github.marhary.saveurlife;
+package com.github.marhary.saveurlife.fragments;
 
 
 import android.app.ListFragment;
@@ -14,10 +14,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.github.marhary.saveurlife.MainActivity;
+import com.github.marhary.saveurlife.Note;
+import com.github.marhary.saveurlife.NoteDetailActivity;
+import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.adapters.NoteAdapter;
 import com.github.marhary.saveurlife.adapters.NotebookDbAdapter;
-import com.github.marhary.saveurlife.parce.NoteJsonDeserializer;
-import com.github.marhary.saveurlife.parce.NoteJsonSerializer;
+import com.github.marhary.saveurlife.parse.NoteJsonDeserializer;
+import com.github.marhary.saveurlife.parse.NoteJsonSerializer;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;

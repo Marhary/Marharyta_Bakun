@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.github.marhary.saveurlife.fragments.NoteEditFragment;
+import com.github.marhary.saveurlife.fragments.NoteViewFragment;
+
 public class NoteDetailActivity extends AppCompatActivity {
 
     public static final String NEW_NOTE_EXTRA = "New Note";
