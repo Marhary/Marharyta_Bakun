@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.marhary.saveurlife.Note;
+import com.github.marhary.saveurlife.noteInterface.Note;
 import com.github.marhary.saveurlife.R;
 
 import java.util.ArrayList;

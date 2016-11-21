@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.github.marhary.saveurlife.MainActivity;
-import com.github.marhary.saveurlife.Note;
+import com.github.marhary.saveurlife.noteInterface.Note;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.adapters.NotebookDbAdapter;

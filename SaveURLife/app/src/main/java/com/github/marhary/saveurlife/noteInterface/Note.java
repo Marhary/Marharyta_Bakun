@@ -1,5 +1,7 @@
-package com.github.marhary.saveurlife;
+package com.github.marhary.saveurlife.noteInterface;
 
+
+import com.github.marhary.saveurlife.R;
 
 public class Note {
     private String title, message;
