@@ -24,6 +24,7 @@ public class NotebookDbAdapter {
     public static final String COLUMN_CATEGORY = "category";
     public static final String COLUMN_DATE = "date";
 
+    // TODO: 11/21/2016 final? static?
     private String[] allColumns = {COLUMN_ID, COLUMN_TITLE, COLUMN_MESSAGE, COLUMN_CATEGORY, COLUMN_DATE};
 
     public static final String CREATE_TABLE_NOTE = "create table " + NOTE_TABLE + " ( "
@@ -52,24 +53,32 @@ public class NotebookDbAdapter {
         notebookDbHelper.close();
     }
 
+    // TODO: 11/21/2016 insert? should pass Note as a parameter. Redundant query!
     public Note createNote(String title, String message, Note.Category category) {
+        //create content values
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE, title);
         values.put(COLUMN_MESSAGE, message);
         values.put(COLUMN_CATEGORY, category.name());
         values.put(COLUMN_DATE, Calendar.getInstance().getTimeInMillis() + "");
 
+        //insert to db new note
         long insertId = sqlDB.insert(NOTE_TABLE, null, values);
 
+        //query note
         Cursor cursor = sqlDB.query(NOTE_TABLE,
                 allColumns, COLUMN_ID + " = " + insertId, null, null, null, null);
 
+        //convert cursor
         cursor.moveToFirst();
         Note newNote = cursorToNote(cursor);
         cursor.close();
+
+        //return note
         return newNote;
     }
 
+    // TODO: 11/21/2016 how to get idToDelete? probably easier to pass Note
     public long deleteNote(long idToDelete) {
         return sqlDB.delete(NOTE_TABLE, COLUMN_ID + " = " + idToDelete, null);
     }
@@ -87,6 +96,7 @@ public class NotebookDbAdapter {
     public ArrayList<Note> getAllNotes() {
         ArrayList<Note> notes = new ArrayList<Note>();
 
+        // TODO: 11/21/2016 null instead of allColumns
         Cursor cursor = sqlDB.query(NOTE_TABLE, allColumns, null, null, null, null, null);
 
         for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
@@ -99,12 +109,14 @@ public class NotebookDbAdapter {
         return notes;
     }
 
+    // TODO: 11/21/2016 the only right method of adapter is private
     private Note cursorToNote(Cursor cursor) {
         Note newNote = new Note(cursor.getString(1), cursor.getString(2),
                 Note.Category.valueOf(cursor.getString(3)), cursor.getLong(0), cursor.getLong(4));
         return newNote;
     }
 
+    // TODO: 11/21/2016 move all work "sqlDb"
     private static class NotebookDbHelper extends SQLiteOpenHelper {
 
         NotebookDbHelper(Context ctx) {

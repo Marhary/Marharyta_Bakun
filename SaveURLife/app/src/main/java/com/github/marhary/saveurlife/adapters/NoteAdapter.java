@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class NoteAdapter extends ArrayAdapter<Note> {
 
+    // TODO: 11/21/2016 access modifier. In general resolve all inspection issues in project.
     public static class ViewHolder {
         TextView title;
         TextView note;

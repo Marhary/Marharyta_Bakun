@@ -18,22 +18,27 @@ import com.github.marhary.saveurlife.settings.AppPreferences;
 
 import cloud_controller.ServletPostAsyncTask;
 
+// TODO: 11/21/2016 rename
 public class MainActivity extends AppCompatActivity {
 
     public static final String NOTE_ID_EXTRA = "com.example.margo.saveurlife.Identifier";
     public static final String NOTE_TITLE_EXTRA = "com.example.margo.saveurlife.Title";
     public static final String NOTE_MESSAGE_EXTRA = "com.example.margo.saveurlife.Message";
     public static final String NOTE_CATEGORY_EXTRA = "com.example.margo.saveurlife.Category";
+    // TODO: 11/21/2016 does not belongs to this class
     public static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "com.example.margo.saveurlife.Fragment_To_Load";
 
+    // TODO: 11/21/2016 does not belongs to this class
     public enum FragmentToLaunch {VIEW, EDIT, CREATE}
 
     @Override
     protected void onResume() {
         super.onStart();
-        int id;
+        int id;// TODO: 11/21/2016 useless??
         if ((id = VkAuthorizer.getUserId()) > 0) {
+            // TODO: 11/21/2016 move to util class work with preferences
             SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+            // TODO: 11/21/2016 to const
             editor.putInt("Id", id);
             editor.apply();
         }
@@ -92,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         boolean isBackgroundDark = sharedPreferences.getBoolean("background_color", false);
         if (isBackgroundDark) {
             LinearLayout mainLayout = (LinearLayout) findViewById(R.id.content_main);
-            mainLayout.setBackgroundColor(Color.parseColor("#3c3f41"));
+            mainLayout.setBackgroundColor(Color.parseColor("#3c3f41"));// rank = top
         }
         String notebookTitle = sharedPreferences.getString("title", "SaveURLife");
         setTitle(notebookTitle);

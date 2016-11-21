@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-
+// TODO: 11/21/2016 use library
 public class NoteJsonDeserializer extends AsyncOperation<String, ArrayList<Note>> {
     @Override
     protected ArrayList<Note> doInBackground(String s) {

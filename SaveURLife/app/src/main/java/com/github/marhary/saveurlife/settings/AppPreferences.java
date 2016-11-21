@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.github.marhary.saveurlife.R;
 
+// TODO: 11/21/2016 preference activity?
 public class AppPreferences extends AppCompatActivity {
 
     @Override

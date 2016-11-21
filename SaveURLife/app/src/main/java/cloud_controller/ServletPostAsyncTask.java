@@ -20,6 +20,7 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
+// TODO: 11/21/2016 remove if unused
 public class ServletPostAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private Context context;
 

@@ -1,3 +1,4 @@
+// TODO: 11/21/2016 rename package
 package com.github.marhary.saveurlife.noteInterface;
 
 
@@ -8,6 +9,7 @@ public class Note {
     private long noteId, dateCreatedMilli;
     private Category category;
 
+    // TODO: 11/21/2016 allow set user's category
     public enum Category {PERSONAL, IDEAS, INTERESTING, JOB}
 
     public Note(String title, String message, Category category) {
@@ -56,10 +58,12 @@ public class Note {
         return categoryToDrawable(category);
     }
 
+    // TODO: 11/21/2016 move to category
     public static int categoryToDrawable(Category noteCategory) {
 
         switch (noteCategory) {
             case PERSONAL:
+                // TODO: 11/21/2016 p?? etc.
                 return R.drawable.p;
             case IDEAS:
                 return R.drawable.t;

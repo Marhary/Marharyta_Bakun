@@ -9,6 +9,7 @@ public abstract class AsyncOperation<Param, Result> {
 
     protected abstract Result doInBackground(Param param);
 
+    // TODO: 11/21/2016 ui blocking
     public final Result execute(final Param param) throws ExecutionException, InterruptedException {
         final AssyncOperationCallableImplementation callableImplementation = new AssyncOperationCallableImplementation(param);
         final Future<Result> future = Executors.newCachedThreadPool().submit(callableImplementation);

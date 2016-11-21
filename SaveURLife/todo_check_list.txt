@@ -1,0 +1,5 @@
+1. OOP!!! book by gang of 4
+2. Db, Sqlite theory and practice
+3. Uri structure etc.
+4. Wise naming
+5. gitignore
