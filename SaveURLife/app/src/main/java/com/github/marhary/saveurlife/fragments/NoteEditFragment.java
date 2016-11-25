@@ -21,9 +21,7 @@ import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.database.NotebookDb;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class NoteEditFragment extends Fragment {
 
     private ImageButton noteCatButton;

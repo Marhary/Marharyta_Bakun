@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.R;
+import com.github.marhary.saveurlife.models.Note;
 
 import java.util.ArrayList;
 

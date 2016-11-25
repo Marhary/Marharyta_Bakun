@@ -9,8 +9,9 @@ public class Note {
     private long noteId, dateCreatedMilli;
     private Category category;
 
-    // TODO: 11/21/2016 allow set user's category
-    public enum Category {NO, IMPORTANT, BUSINESS, PERSONAL, TODO, SHOPPING}
+    public enum Category {NO, IMPORTANT, BUSINESS, PERSONAL, TODO, SHOPPING;
+
+    }
 
     public Note(String title, String message, Category category) {
         this.title = title;
