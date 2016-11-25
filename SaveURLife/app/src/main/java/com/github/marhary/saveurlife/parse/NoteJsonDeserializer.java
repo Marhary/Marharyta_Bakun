@@ -1,7 +1,7 @@
 package com.github.marhary.saveurlife.parse;
 
 import com.github.marhary.saveurlife.asyncOperation.AsyncOperation;
-import com.github.marhary.saveurlife.noteInterface.Note;
+import com.github.marhary.saveurlife.models.Note;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -25,8 +25,8 @@ public class NoteDetailActivity extends AppCompatActivity {
 
         //grab intent and fragment to launch from mainAct list fragment
         Intent intent = getIntent();
-        MainActivity.FragmentToLaunch fragmentToLaunch =
-                (MainActivity.FragmentToLaunch) intent.getSerializableExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA);
+        ListOfNotesActivity.FragmentToLaunch fragmentToLaunch =
+                (ListOfNotesActivity.FragmentToLaunch) intent.getSerializableExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA);
 
         //grabbing fragment manager and fragment transaction
         FragmentManager fragmentManager = getSupportFragmentManager();

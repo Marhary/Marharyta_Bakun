@@ -1,21 +1,17 @@
-package com.github.marhary.saveurlife.adapters;
+package com.github.marhary.saveurlife.database;
 
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
-import com.github.marhary.saveurlife.noteInterface.Note;
+import com.github.marhary.saveurlife.models.Note;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class NotebookDbAdapter {
-    private static final String DATABASE_NAME = "notebook.db";
-    private static final int DATABASE_VERSION = 1;
 
     public static final String NOTE_TABLE = "note";
     public static final String COLUMN_ID = "_id";
@@ -116,25 +112,4 @@ public class NotebookDbAdapter {
         return newNote;
     }
 
-    // TODO: 11/21/2016 move all work "sqlDb"
-    private static class NotebookDbHelper extends SQLiteOpenHelper {
-
-        NotebookDbHelper(Context ctx) {
-            super(ctx, DATABASE_NAME, null, DATABASE_VERSION);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_TABLE_NOTE);
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.w(NotebookDbHelper.class.getName(),
-                    "Upgrading database from version " + oldVersion + " to "
-                            + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS " + NOTE_TABLE);
-            onCreate(db);
-        }
-    }
 }

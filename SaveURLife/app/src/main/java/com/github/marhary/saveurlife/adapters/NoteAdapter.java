@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.marhary.saveurlife.noteInterface.Note;
+import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.R;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class NoteAdapter extends ArrayAdapter<Note> {
 
     // TODO: 11/21/2016 access modifier. In general resolve all inspection issues in project.
-    public static class ViewHolder {
+    private static class ViewHolder {
         TextView title;
         TextView note;
         ImageView noteIcon;

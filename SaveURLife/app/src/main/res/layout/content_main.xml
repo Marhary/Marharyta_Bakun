@@ -7,12 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.github.marhary.saveurlife.MainActivity"
+    tools:context="com.github.marhary.saveurlife.ListOfNotesActivity"
     tools:showIn="@layout/activity_main">
 
     <fragment
         android:id="@+id/mainActivityFrag"
-        android:name="com.github.marhary.saveurlife.fragments.MainActivityListFragment"
+        android:name="com.github.marhary.saveurlife.fragments.ListOfNotesFragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 

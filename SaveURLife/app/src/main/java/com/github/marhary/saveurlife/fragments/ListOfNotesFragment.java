@@ -14,22 +14,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.github.marhary.saveurlife.MainActivity;
-import com.github.marhary.saveurlife.noteInterface.Note;
+import com.github.marhary.saveurlife.ListOfNotesActivity;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.adapters.NoteAdapter;
-import com.github.marhary.saveurlife.adapters.NotebookDbAdapter;
+import com.github.marhary.saveurlife.database.NotebookDbAdapter;
+import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.parse.NoteJsonDeserializer;
 import com.github.marhary.saveurlife.parse.NoteJsonSerializer;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainActivityListFragment extends ListFragment {
+public class ListOfNotesFragment extends ListFragment {
 
     private ArrayList<Note> notes;
     private NoteAdapter noteAdapter;
@@ -47,7 +46,7 @@ public class MainActivityListFragment extends ListFragment {
             final String execute = new NoteJsonSerializer().execute(notes);
             ArrayList<Note> list = new NoteJsonDeserializer().execute(execute);
             final StringBuilder stringBuilder = new StringBuilder();
-        } catch (ExecutionException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         noteAdapter = new NoteAdapter(getActivity(), notes);
@@ -64,7 +63,7 @@ public class MainActivityListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        launchNoteDetailActivity(MainActivity.FragmentToLaunch.VIEW, position);
+        launchNoteDetailActivity(ListOfNotesActivity.FragmentToLaunch.VIEW, position);
     }
 
     @Override
@@ -86,7 +85,7 @@ public class MainActivityListFragment extends ListFragment {
         switch (item.getItemId()) {
             case R.id.edit:
 
-                launchNoteDetailActivity(MainActivity.FragmentToLaunch.EDIT, rowPosition);
+                launchNoteDetailActivity(ListOfNotesActivity.FragmentToLaunch.EDIT, rowPosition);
                 Log.d("Menu Clicks", "We pressed edit");
                 return true;
 
@@ -105,7 +104,7 @@ public class MainActivityListFragment extends ListFragment {
         return super.onContextItemSelected(item);
     }
 
-    private void launchNoteDetailActivity(MainActivity.FragmentToLaunch ftl, int position) {
+    private void launchNoteDetailActivity(ListOfNotesActivity.FragmentToLaunch ftl, int position) {
 
         //note information
         Note note = (Note) getListAdapter().getItem(position);
@@ -114,17 +113,17 @@ public class MainActivityListFragment extends ListFragment {
         Intent intent = new Intent(getActivity(), NoteDetailActivity.class);
 
         //pass information of the note which click on nDA
-        intent.putExtra(MainActivity.NOTE_TITLE_EXTRA, note.getTitle());
-        intent.putExtra(MainActivity.NOTE_MESSAGE_EXTRA, note.getMessage());
-        intent.putExtra(MainActivity.NOTE_CATEGORY_EXTRA, note.getCategory());
-        intent.putExtra(MainActivity.NOTE_ID_EXTRA, note.getId());
+        intent.putExtra(ListOfNotesActivity.NOTE_TITLE_EXTRA, note.getTitle());
+        intent.putExtra(ListOfNotesActivity.NOTE_MESSAGE_EXTRA, note.getMessage());
+        intent.putExtra(ListOfNotesActivity.NOTE_CATEGORY_EXTRA, note.getCategory());
+        intent.putExtra(ListOfNotesActivity.NOTE_ID_EXTRA, note.getId());
 
         switch (ftl) {
             case VIEW:
-                intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, MainActivity.FragmentToLaunch.VIEW);
+                intent.putExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, ListOfNotesActivity.FragmentToLaunch.VIEW);
                 break;
             case EDIT:
-                intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, MainActivity.FragmentToLaunch.EDIT);
+                intent.putExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, ListOfNotesActivity.FragmentToLaunch.EDIT);
                 break;
         }
 

@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.github.marhary.saveurlife.MainActivity"
+            android:name="com.github.marhary.saveurlife.ListOfNotesActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,12 +23,12 @@
         <activity
             android:name="com.github.marhary.saveurlife.NoteDetailActivity"
             android:label="@string/edit_fragment_title"
-            android:parentActivityName="com.github.marhary.saveurlife.MainActivity"
+            android:parentActivityName="com.github.marhary.saveurlife.ListOfNotesActivity"
             android:theme="@style/AppThemeW" />
         <activity
             android:name="com.github.marhary.saveurlife.settings.AppPreferences"
             android:label="@string/title_preferences"
-            android:parentActivityName="com.github.marhary.saveurlife.MainActivity"
+            android:parentActivityName="com.github.marhary.saveurlife.ListOfNotesActivity"
             android:theme="@style/AppThemeS" />
         <activity android:name="com.github.marhary.saveurlife.AuthActivity" />
     </application>

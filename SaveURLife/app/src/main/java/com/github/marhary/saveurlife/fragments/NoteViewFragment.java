@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.marhary.saveurlife.MainActivity;
-import com.github.marhary.saveurlife.noteInterface.Note;
+import com.github.marhary.saveurlife.ListOfNotesActivity;
+import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.R;
 
 
@@ -39,10 +39,10 @@ public class NoteViewFragment extends Fragment {
         Intent intent = getActivity().getIntent();
 
 
-        title.setText(intent.getExtras().getString(MainActivity.NOTE_TITLE_EXTRA));
-        message.setText(intent.getExtras().getString(MainActivity.NOTE_MESSAGE_EXTRA));
+        title.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_TITLE_EXTRA));
+        message.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_MESSAGE_EXTRA));
 
-        Note.Category noteCat = (Note.Category) intent.getSerializableExtra(MainActivity.NOTE_CATEGORY_EXTRA);
+        Note.Category noteCat = (Note.Category) intent.getSerializableExtra(ListOfNotesActivity.NOTE_CATEGORY_EXTRA);
         icon.setImageResource(Note.categoryToDrawable(noteCat));
 
         return fragmentLayout;

@@ -14,11 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.github.marhary.saveurlife.MainActivity;
-import com.github.marhary.saveurlife.noteInterface.Note;
+import com.github.marhary.saveurlife.ListOfNotesActivity;
+import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
-import com.github.marhary.saveurlife.adapters.NotebookDbAdapter;
+import com.github.marhary.saveurlife.database.NotebookDbAdapter;
 
 
 /**
@@ -63,16 +63,16 @@ public class NoteEditFragment extends Fragment {
 
         // TODO: 11/21/2016 get from arguments
         Intent intent = getActivity().getIntent();
-        title.setText(intent.getExtras().getString(MainActivity.NOTE_TITLE_EXTRA, ""));
-        message.setText(intent.getExtras().getString(MainActivity.NOTE_MESSAGE_EXTRA, ""));
-        noteId = intent.getExtras().getLong(MainActivity.NOTE_ID_EXTRA, 0);
+        title.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_TITLE_EXTRA, ""));
+        message.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_MESSAGE_EXTRA, ""));
+        noteId = intent.getExtras().getLong(ListOfNotesActivity.NOTE_ID_EXTRA, 0);
 
         //when i change orientation category is saved
         if (savedButtonCategory != null) {
             noteCatButton.setImageResource(Note.categoryToDrawable(savedButtonCategory));
             //came from list fragment so just do everything noormaly
         } else if (!newNote) {
-            Note.Category noteCat = (Note.Category) intent.getSerializableExtra(MainActivity.NOTE_CATEGORY_EXTRA);
+            Note.Category noteCat = (Note.Category) intent.getSerializableExtra(ListOfNotesActivity.NOTE_CATEGORY_EXTRA);
             savedButtonCategory = noteCat;
             noteCatButton.setImageResource(Note.categoryToDrawable(noteCat));
         }
@@ -104,7 +104,7 @@ public class NoteEditFragment extends Fragment {
     }
 
     private void buildCategoryDialog() {
-        final String[] categories = new String[]{"Personal", "Ideas", "Interesting", "Job"};
+        final String[] categories = new String[]{"No", "Important", "Business", "Personal", "Todo", "Shopping"};
         AlertDialog.Builder categoryBuilder = new AlertDialog.Builder(getActivity());
         categoryBuilder.setTitle("Choose Note Type");
 
@@ -117,20 +117,28 @@ public class NoteEditFragment extends Fragment {
 
                 switch (item) {
                     case 0:
-                        savedButtonCategory = Note.Category.PERSONAL;
-                        noteCatButton.setImageResource(R.drawable.p);
+                        savedButtonCategory = Note.Category.NO;
+                        noteCatButton.setImageResource(R.drawable.nocategory);
                         break;
                     case 1:
-                        savedButtonCategory = Note.Category.IDEAS;
-                        noteCatButton.setImageResource(R.drawable.t);
+                        savedButtonCategory = Note.Category.IMPORTANT;
+                        noteCatButton.setImageResource(R.drawable.important);
                         break;
                     case 2:
-                        savedButtonCategory = Note.Category.INTERESTING;
-                        noteCatButton.setImageResource(R.drawable.q);
+                        savedButtonCategory = Note.Category.BUSINESS;
+                        noteCatButton.setImageResource(R.drawable.business);
                         break;
                     case 3:
-                        savedButtonCategory = Note.Category.JOB;
-                        noteCatButton.setImageResource(R.drawable.f);
+                        savedButtonCategory = Note.Category.PERSONAL;
+                        noteCatButton.setImageResource(R.drawable.personal);
+                        break;
+                    case 4:
+                        savedButtonCategory = Note.Category.TODO;
+                        noteCatButton.setImageResource(R.drawable.todo);
+                        break;
+                    case 5:
+                        savedButtonCategory = Note.Category.SHOPPING;
+                        noteCatButton.setImageResource(R.drawable.shopping);
                         break;
                 }
             }
@@ -164,7 +172,7 @@ public class NoteEditFragment extends Fragment {
 
                 dbAdapter.close();
 
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), ListOfNotesActivity.class);
                 startActivity(intent);
             }
         });

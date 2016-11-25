@@ -1,5 +1,5 @@
-// TODO: 11/21/2016 rename package
-package com.github.marhary.saveurlife.noteInterface;
+
+package com.github.marhary.saveurlife.models;
 
 
 import com.github.marhary.saveurlife.R;
@@ -10,7 +10,7 @@ public class Note {
     private Category category;
 
     // TODO: 11/21/2016 allow set user's category
-    public enum Category {PERSONAL, IDEAS, INTERESTING, JOB}
+    public enum Category {NO, IMPORTANT, BUSINESS, PERSONAL, TODO, SHOPPING}
 
     public Note(String title, String message, Category category) {
         this.title = title;
@@ -62,17 +62,20 @@ public class Note {
     public static int categoryToDrawable(Category noteCategory) {
 
         switch (noteCategory) {
+            case NO:
+                return R.drawable.nocategory;
+            case IMPORTANT:
+                return R.drawable.important;
+            case BUSINESS:
+                return R.drawable.business;
             case PERSONAL:
-                // TODO: 11/21/2016 p?? etc.
-                return R.drawable.p;
-            case IDEAS:
-                return R.drawable.t;
-            case JOB:
-                return R.drawable.f;
-            case INTERESTING:
-                return R.drawable.q;
+                return R.drawable.personal;
+            case TODO:
+                return R.drawable.todo;
+            case SHOPPING:
+                return R.drawable.shopping;
         }
-        return R.drawable.p;
+        return R.drawable.nocategory;
     }
 }
 

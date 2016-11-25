@@ -9,10 +9,10 @@
     android:paddingLeft="12dp">
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/editNoteButton"
-        android:src="@drawable/p"
+        android:src="@drawable/nocategory"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="15dp"/>

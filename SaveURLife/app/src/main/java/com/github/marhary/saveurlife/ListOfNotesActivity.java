@@ -1,6 +1,5 @@
 package com.github.marhary.saveurlife;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
@@ -16,10 +14,7 @@ import android.widget.LinearLayout;
 import com.github.marhary.saveurlife.auth.VkAuthorizer;
 import com.github.marhary.saveurlife.settings.AppPreferences;
 
-import cloud_controller.ServletPostAsyncTask;
-
-// TODO: 11/21/2016 rename
-public class MainActivity extends AppCompatActivity {
+public class ListOfNotesActivity extends AppCompatActivity {
 
     public static final String NOTE_ID_EXTRA = "com.example.margo.saveurlife.Identifier";
     public static final String NOTE_TITLE_EXTRA = "com.example.margo.saveurlife.Title";
@@ -53,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         loadPreferences();
-
-        new ServletPostAsyncTask().execute(new Pair<Context, String>(this, "Marhary"));
-
     }
 
     @Override
@@ -79,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_add_note) {
             Intent intent = new Intent(this, NoteDetailActivity.class);
-            intent.putExtra(MainActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
+            intent.putExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
             startActivity(intent);
             return true;
         } else if (id == R.id.authorization) {
@@ -97,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         boolean isBackgroundDark = sharedPreferences.getBoolean("background_color", false);
         if (isBackgroundDark) {
             LinearLayout mainLayout = (LinearLayout) findViewById(R.id.content_main);
-            mainLayout.setBackgroundColor(Color.parseColor("#3c3f41"));// rank = top
+            mainLayout.setBackgroundColor(Color.parseColor(getString(R.string.settings_colour)));
         }
         String notebookTitle = sharedPreferences.getString("title", "SaveURLife");
         setTitle(notebookTitle);

@@ -11,7 +11,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:id="@+id/listItemNoteImg"
-        android:src="@drawable/p"
+        android:src="@drawable/nocategory"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="12dp"

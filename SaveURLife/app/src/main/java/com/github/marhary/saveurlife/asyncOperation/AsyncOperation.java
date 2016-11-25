@@ -1,22 +1,29 @@
 package com.github.marhary.saveurlife.asyncOperation;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+
 public abstract class AsyncOperation<Param, Result> {
+
+
+    private Future<Result> future;
+    private static ExecutorService executor = Executors.newCachedThreadPool();
+
 
     protected abstract Result doInBackground(Param param);
 
-    // TODO: 11/21/2016 ui blocking
-    public final Result execute(final Param param) throws ExecutionException, InterruptedException {
-        final AssyncOperationCallableImplementation callableImplementation = new AssyncOperationCallableImplementation(param);
-        final Future<Result> future = Executors.newCachedThreadPool().submit(callableImplementation);
-        return future.get();
+
+    public final Result execute(final Param param) {
+        startLoading(param);
+        return getResult();
     }
 
+
     private class AssyncOperationCallableImplementation implements Callable<Result> {
+
 
         private Param param;
 
@@ -24,9 +31,28 @@ public abstract class AsyncOperation<Param, Result> {
             this.param = param;
         }
 
+
         @Override
         public Result call() throws Exception {
             return doInBackground(param);
         }
     }
+
+
+    public final void startLoading(final Param param) {
+        final AssyncOperationCallableImplementation callableImplementation = new AssyncOperationCallableImplementation(param);
+        this.future = executor.submit(callableImplementation);
+    }
+
+
+    public final Result getResult() {
+        try {
+            return future.get();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 }
