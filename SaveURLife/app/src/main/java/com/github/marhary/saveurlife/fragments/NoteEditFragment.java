@@ -18,7 +18,7 @@ import com.github.marhary.saveurlife.ListOfNotesActivity;
 import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
-import com.github.marhary.saveurlife.database.NotebookDbAdapter;
+import com.github.marhary.saveurlife.database.NotebookDb;
 
 
 /**
@@ -158,13 +158,13 @@ public class NoteEditFragment extends Fragment {
                 Log.d("Save Note", "Note title: " + title.getText() + "Note message: " +
                         message.getText() + "Note category: " + savedButtonCategory);
 
-                NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+                NotebookDb dbAdapter = new NotebookDb(getActivity().getBaseContext());
                 dbAdapter.open();
 
                 if (newNote) {
                     //if its a new note create in database
-                    dbAdapter.createNote(title.getText() + "", message.getText() + "",
-                            (savedButtonCategory == null) ? Note.Category.PERSONAL : savedButtonCategory);
+                    Note note = new Note(title.getText().toString(),message.getText().toString(),(savedButtonCategory == null) ? Note.Category.PERSONAL : savedButtonCategory);
+                    dbAdapter.createNote(note);
                 } else {
                     //if old update
                     dbAdapter.updateNote(noteId, title.getText() + "", message.getText() + "", savedButtonCategory);

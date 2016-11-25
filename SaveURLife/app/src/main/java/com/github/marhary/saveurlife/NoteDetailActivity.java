@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.github.marhary.saveurlife.fragments.ListOfNotesFragment;
 import com.github.marhary.saveurlife.fragments.NoteEditFragment;
 import com.github.marhary.saveurlife.fragments.NoteViewFragment;
 
@@ -25,8 +26,8 @@ public class NoteDetailActivity extends AppCompatActivity {
 
         //grab intent and fragment to launch from mainAct list fragment
         Intent intent = getIntent();
-        ListOfNotesActivity.FragmentToLaunch fragmentToLaunch =
-                (ListOfNotesActivity.FragmentToLaunch) intent.getSerializableExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA);
+        ListOfNotesFragment.FragmentToLaunch fragmentToLaunch =
+                (ListOfNotesFragment.FragmentToLaunch) intent.getSerializableExtra(ListOfNotesFragment.NOTE_FRAGMENT_TO_LOAD_EXTRA);
 
         //grabbing fragment manager and fragment transaction
         FragmentManager fragmentManager = getSupportFragmentManager();

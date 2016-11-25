@@ -11,8 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
+import com.github.marhary.saveurlife.auth.Constant;
 import com.github.marhary.saveurlife.auth.VkAuthorizer;
+import com.github.marhary.saveurlife.fragments.ListOfNotesFragment;
 import com.github.marhary.saveurlife.settings.AppPreferences;
+import com.github.marhary.saveurlife.settings.UtilPreferences;
 
 public class ListOfNotesActivity extends AppCompatActivity {
 
@@ -20,25 +23,17 @@ public class ListOfNotesActivity extends AppCompatActivity {
     public static final String NOTE_TITLE_EXTRA = "com.example.margo.saveurlife.Title";
     public static final String NOTE_MESSAGE_EXTRA = "com.example.margo.saveurlife.Message";
     public static final String NOTE_CATEGORY_EXTRA = "com.example.margo.saveurlife.Category";
-    // TODO: 11/21/2016 does not belongs to this class
-    public static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "com.example.margo.saveurlife.Fragment_To_Load";
 
-    // TODO: 11/21/2016 does not belongs to this class
-    public enum FragmentToLaunch {VIEW, EDIT, CREATE}
+    private int id;
 
     @Override
     protected void onResume() {
         super.onStart();
-        int id;// TODO: 11/21/2016 useless??
-        if ((id = VkAuthorizer.getUserId()) > 0) {
-            // TODO: 11/21/2016 move to util class work with preferences
-            SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
-            // TODO: 11/21/2016 to const
-            editor.putInt("Id", id);
-            editor.apply();
+        if ((id = new VkAuthorizer().getUserId()) > 0) {
+            UtilPreferences.readPreference(this);
         }
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        id = getPreferences(MODE_PRIVATE).getInt("Id", -1);
+        id = getPreferences(MODE_PRIVATE).getInt(Constant.ID, -1);
     }
 
     @Override
@@ -71,7 +66,7 @@ public class ListOfNotesActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_add_note) {
             Intent intent = new Intent(this, NoteDetailActivity.class);
-            intent.putExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.CREATE);
+            intent.putExtra(ListOfNotesFragment.NOTE_FRAGMENT_TO_LOAD_EXTRA, ListOfNotesFragment.FragmentToLaunch.CREATE);
             startActivity(intent);
             return true;
         } else if (id == R.id.authorization) {

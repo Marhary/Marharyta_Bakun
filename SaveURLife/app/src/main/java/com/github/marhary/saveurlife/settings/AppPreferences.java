@@ -3,10 +3,10 @@ package com.github.marhary.saveurlife.settings;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.marhary.saveurlife.R;
+import com.github.marhary.saveurlife.fragments.SettingsFragment;
 
 // TODO: 11/21/2016 preference activity?
 public class AppPreferences extends AppCompatActivity {
@@ -26,13 +26,5 @@ public class AppPreferences extends AppCompatActivity {
 
     }
 
-    public static class SettingsFragment extends PreferenceFragment {
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            addPreferencesFromResource(R.xml.app_preferences);
-        }
-    }
 }

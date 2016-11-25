@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import static com.github.marhary.saveurlife.database.NotebookDbAdapter.CREATE_TABLE_NOTE;
-import static com.github.marhary.saveurlife.database.NotebookDbAdapter.NOTE_TABLE;
+import static com.github.marhary.saveurlife.database.NotebookDb.CREATE_TABLE_NOTE;
+import static com.github.marhary.saveurlife.database.NotebookDb.NOTE_TABLE;
 
 public class NotebookDbHelper extends SQLiteOpenHelper {
 

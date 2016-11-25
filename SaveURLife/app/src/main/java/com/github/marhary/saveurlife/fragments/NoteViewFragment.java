@@ -15,9 +15,6 @@ import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class NoteViewFragment extends Fragment {
 
 

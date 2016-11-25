@@ -4,7 +4,6 @@ package com.github.marhary.saveurlife.fragments;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -18,27 +17,27 @@ import com.github.marhary.saveurlife.ListOfNotesActivity;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.adapters.NoteAdapter;
-import com.github.marhary.saveurlife.database.NotebookDbAdapter;
+import com.github.marhary.saveurlife.database.NotebookDb;
 import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.parse.NoteJsonDeserializer;
 import com.github.marhary.saveurlife.parse.NoteJsonSerializer;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ListOfNotesFragment extends ListFragment {
 
     private ArrayList<Note> notes;
     private NoteAdapter noteAdapter;
 
+    public enum FragmentToLaunch {VIEW, EDIT, CREATE}
+
+    public static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "com.example.margo.saveurlife.Fragment_To_Load";
 
     @Override
     public void onActivityCreated(Bundle saveInstanceState) {
         super.onActivityCreated(saveInstanceState);
 
-        NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+        NotebookDb dbAdapter = new NotebookDb(getActivity().getBaseContext());
         dbAdapter.open();
         notes = dbAdapter.getAllNotes();
         dbAdapter.close();
@@ -63,7 +62,7 @@ public class ListOfNotesFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        launchNoteDetailActivity(ListOfNotesActivity.FragmentToLaunch.VIEW, position);
+        launchNoteDetailActivity(ListOfNotesFragment.FragmentToLaunch.VIEW, position);
     }
 
     @Override
@@ -85,14 +84,14 @@ public class ListOfNotesFragment extends ListFragment {
         switch (item.getItemId()) {
             case R.id.edit:
 
-                launchNoteDetailActivity(ListOfNotesActivity.FragmentToLaunch.EDIT, rowPosition);
+                launchNoteDetailActivity(FragmentToLaunch.EDIT, rowPosition);
                 Log.d("Menu Clicks", "We pressed edit");
                 return true;
 
             case R.id.delete:
-                NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+                NotebookDb dbAdapter = new NotebookDb(getActivity().getBaseContext());
                 dbAdapter.open();
-                dbAdapter.deleteNote(note.getId());
+                dbAdapter.deleteNote(note);
 
                 notes.clear();
                 notes.addAll(dbAdapter.getAllNotes());
@@ -104,7 +103,7 @@ public class ListOfNotesFragment extends ListFragment {
         return super.onContextItemSelected(item);
     }
 
-    private void launchNoteDetailActivity(ListOfNotesActivity.FragmentToLaunch ftl, int position) {
+    private void launchNoteDetailActivity(ListOfNotesFragment.FragmentToLaunch ftl, int position) {
 
         //note information
         Note note = (Note) getListAdapter().getItem(position);
@@ -120,10 +119,10 @@ public class ListOfNotesFragment extends ListFragment {
 
         switch (ftl) {
             case VIEW:
-                intent.putExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, ListOfNotesActivity.FragmentToLaunch.VIEW);
+                intent.putExtra(NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.VIEW);
                 break;
             case EDIT:
-                intent.putExtra(ListOfNotesActivity.NOTE_FRAGMENT_TO_LOAD_EXTRA, ListOfNotesActivity.FragmentToLaunch.EDIT);
+                intent.putExtra(NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.EDIT);
                 break;
         }
 

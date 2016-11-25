@@ -2,6 +2,7 @@ package com.github.marhary.saveurlife.adapters;
 
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 
 public class NoteAdapter extends ArrayAdapter<Note> {
 
-    // TODO: 11/21/2016 access modifier. In general resolve all inspection issues in project.
     private static class ViewHolder {
         TextView title;
         TextView note;
@@ -27,8 +27,9 @@ public class NoteAdapter extends ArrayAdapter<Note> {
         super(context, 0, notes);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
         Note note = getItem(position);
 
