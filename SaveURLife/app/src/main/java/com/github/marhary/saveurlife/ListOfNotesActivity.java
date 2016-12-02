@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import com.github.marhary.saveurlife.auth.Constant;
 import com.github.marhary.saveurlife.auth.VkAuthorizer;
 import com.github.marhary.saveurlife.fragments.ListOfNotesFragment;
+import com.github.marhary.saveurlife.imageLoader.LoaderActivity;
 import com.github.marhary.saveurlife.settings.AppPreferences;
 import com.github.marhary.saveurlife.settings.UtilPreferences;
 
@@ -72,6 +73,10 @@ public class ListOfNotesActivity extends AppCompatActivity {
         } else if (id == R.id.authorization) {
             Intent intent = new Intent(this, AuthActivity.class);
             startActivityForResult(intent, 1);
+            return true;
+        } else if (id == R.id.loader){
+            Intent intent = new Intent(this, LoaderActivity.class);
+            startActivity(intent);
             return true;
         }
 

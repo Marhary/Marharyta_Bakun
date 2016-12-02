@@ -17,4 +17,5 @@
     <string name="delete_menu">Delete</string>
     <string name="authorization">Authorization</string>
     <string name="settings_colour">#3c3f41</string>
+    <string name="my_images">My Images</string>
 </resources>

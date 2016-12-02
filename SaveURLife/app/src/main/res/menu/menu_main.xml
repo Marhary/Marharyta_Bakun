@@ -16,4 +16,7 @@
     <item
         android:id="@+id/authorization"
         android:title="@string/authorization"/>
+    <item
+        android:id="@+id/loader"
+        android:title="@string/my_images"/>
 </menu>
