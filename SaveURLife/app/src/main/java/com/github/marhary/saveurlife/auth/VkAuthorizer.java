@@ -14,7 +14,7 @@ public class VkAuthorizer {
 
 
     public String getUrl(int appId) {
-        String link = String.format(Locale.getDefault(),Constant.VK_URL , appId);
+        String link = String.format(Locale.getDefault(),IConstant.VK_URL , appId);
         return link;
     }
 

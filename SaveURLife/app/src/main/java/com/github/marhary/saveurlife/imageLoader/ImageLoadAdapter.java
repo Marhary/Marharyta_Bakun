@@ -11,13 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.marhary.saveurlife.R;
+import com.github.marhary.saveurlife.auth.IConstant;
 
 class ImageLoadAdapter extends BaseAdapter implements OnClickListener{
 
     private Activity activity;
     private String[] data;
     private static LayoutInflater inflater = null;
-    ImageLoader imageLoader;
+    public ImageLoader imageLoader;
 
     ImageLoadAdapter(Activity a, String[] d) {
         activity = a;
@@ -46,7 +47,6 @@ class ImageLoadAdapter extends BaseAdapter implements OnClickListener{
     private static class ViewHolder {
         TextView text;
         TextView text1;
-        TextView textWide;
         ImageView image;
     }
 
@@ -72,8 +72,8 @@ class ImageLoadAdapter extends BaseAdapter implements OnClickListener{
             holder = (ViewHolder) vi.getTag();
         }
 
-        holder.text.setText("Group " + pos);
-        holder.text1.setText("group description " + pos);
+        holder.text.setText(IConstant.GROUP + pos);
+        holder.text1.setText(IConstant.GROUP_DESCRIPTION + pos);
         ImageView image = holder.image;
 
         imageLoader.displayImage(data[pos], image);

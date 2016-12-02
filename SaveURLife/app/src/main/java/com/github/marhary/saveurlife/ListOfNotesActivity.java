@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
-import com.github.marhary.saveurlife.auth.Constant;
+import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.auth.VkAuthorizer;
 import com.github.marhary.saveurlife.fragments.ListOfNotesFragment;
 import com.github.marhary.saveurlife.imageLoader.LoaderActivity;
@@ -34,7 +34,7 @@ public class ListOfNotesActivity extends AppCompatActivity {
             UtilPreferences.readPreference(this);
         }
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        id = getPreferences(MODE_PRIVATE).getInt(Constant.ID, -1);
+        id = getPreferences(MODE_PRIVATE).getInt(IConstant.ID, -1);
     }
 
     @Override
@@ -86,12 +86,12 @@ public class ListOfNotesActivity extends AppCompatActivity {
     private void loadPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        boolean isBackgroundDark = sharedPreferences.getBoolean("background_color", false);
+        boolean isBackgroundDark = sharedPreferences.getBoolean(IConstant.BACKGROUND_COLOR, false);
         if (isBackgroundDark) {
             LinearLayout mainLayout = (LinearLayout) findViewById(R.id.content_main);
             mainLayout.setBackgroundColor(Color.parseColor(getString(R.string.settings_colour)));
         }
-        String notebookTitle = sharedPreferences.getString("title", "SaveURLife");
+        String notebookTitle = sharedPreferences.getString(IConstant.TITLE, IConstant.SAVEURLIFE);
         setTitle(notebookTitle);
     }
 }

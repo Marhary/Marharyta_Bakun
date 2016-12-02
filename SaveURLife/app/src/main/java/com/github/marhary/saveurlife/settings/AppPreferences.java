@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.marhary.saveurlife.R;
+import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.fragments.SettingsFragment;
 
-// TODO: 11/21/2016 preference activity?
 public class AppPreferences extends AppCompatActivity {
 
     @Override
@@ -21,7 +21,7 @@ public class AppPreferences extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         SettingsFragment settingsFragment = new SettingsFragment();
-        fragmentTransaction.add(android.R.id.content, settingsFragment, "SETTINGS_FRAGMENT");
+        fragmentTransaction.add(android.R.id.content, settingsFragment, IConstant.SETTINGS_FRAGMENT);
         fragmentTransaction.commit();
 
     }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.auth.VkAuthorizer;
 
 public class AuthActivity extends AppCompatActivity {
@@ -28,10 +29,10 @@ public class AuthActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 String url1 = url;
-                if (url.contains("access_token")){
+                if (url.contains(IConstant.ACCESS_TOKEN)){
                     int id=vkAuthorizer.getIdFromUrl(url);
                     Intent intent = new Intent();
-                    intent.putExtra("id", id);
+                    intent.putExtra(IConstant.ID, id);
                     setResult(RESULT_OK, intent);
                     finish();
                 }

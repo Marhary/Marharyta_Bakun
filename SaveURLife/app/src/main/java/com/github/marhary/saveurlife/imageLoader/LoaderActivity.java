@@ -8,6 +8,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.github.marhary.saveurlife.R;
+import com.github.marhary.saveurlife.auth.IConstant;
 
 public class LoaderActivity extends AppCompatActivity {
 
@@ -50,7 +51,7 @@ public class LoaderActivity extends AppCompatActivity {
     public void onItemClick(int pos) {
         String tempValues = strings[pos];
 
-        Toast.makeText(LoaderActivity.this, "Image URL: " + tempValues,
+        Toast.makeText(LoaderActivity.this, IConstant.IMAGE_URL + tempValues,
                 Toast.LENGTH_LONG).show();
     }
     private String[] strings = {

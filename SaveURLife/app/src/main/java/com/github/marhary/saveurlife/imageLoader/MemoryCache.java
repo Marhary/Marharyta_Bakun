@@ -3,6 +3,8 @@ package com.github.marhary.saveurlife.imageLoader;
 import android.graphics.Bitmap;
 import android.util.Log;
 
+import com.github.marhary.saveurlife.auth.IConstant;
+
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -11,7 +13,7 @@ import java.util.Map.Entry;
 
 class MemoryCache {
 
-    private static final String TAG = "MemoryCache";
+    private static final String TAG = IConstant.MEMORY_CACHE;
 
     private Map<String, Bitmap> cache = Collections
             .synchronizedMap(new LinkedHashMap<String, Bitmap>(10, 1.5f, true));
@@ -26,7 +28,7 @@ class MemoryCache {
 
     private void setLimit(long new_limit) {
         limit = new_limit;
-        Log.i(TAG, "MemoryCache will use up to " + limit / 1024. / 1024. + "MB");
+        Log.i(TAG, IConstant.WILL_USE + limit / 1024. / 1024. + IConstant.MB);
     }
 
     Bitmap get(String id) {
@@ -59,7 +61,7 @@ class MemoryCache {
     }
 
     private void checkSize() {
-        Log.i(TAG, "cache size = " + size + " length = " + cache.size());
+        Log.i(TAG, IConstant.CACHE_SIZE + size + IConstant.LENGTH + cache.size());
 
         if(size > limit) {
             Iterator<Entry<String, Bitmap>> iter = cache.entrySet().iterator();
@@ -71,7 +73,7 @@ class MemoryCache {
                 if(size <= limit)
                     break;
             }
-            Log.i(TAG, "Clean cache. New size " + cache.size());
+            Log.i(TAG, IConstant.CLEAN + cache.size());
         }
     }
 

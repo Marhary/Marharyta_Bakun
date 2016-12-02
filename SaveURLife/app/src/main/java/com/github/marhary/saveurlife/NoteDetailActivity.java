@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.fragments.ListOfNotesFragment;
 import com.github.marhary.saveurlife.fragments.NoteEditFragment;
 import com.github.marhary.saveurlife.fragments.NoteViewFragment;
@@ -39,25 +40,28 @@ public class NoteDetailActivity extends AppCompatActivity {
                 //create and add note edit fragment to note detail activity
                 NoteEditFragment noteEditFragment = new NoteEditFragment();
                 setTitle(getString(R.string.edit_note_title));
-                fragmentTransaction.add(R.id.note_container, noteEditFragment, "NOTE_EDIT_FRAGMENT");
+                fragmentTransaction.add(R.id.note_container, noteEditFragment, IConstant.NOTE_EDIT_FRAGMENT);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(IConstant.INTENT_KEY, getIntent());
+                noteEditFragment.setArguments(bundle);
                 break;
 
             case VIEW:
                 //create and add note view fragment to note detail activity
                 NoteViewFragment noteViewFragment = new NoteViewFragment();
                 setTitle(getString(R.string.all_note_title));
-                fragmentTransaction.add(R.id.note_container, noteViewFragment, "NOTE_VIEW_FRAGMENT");
+                fragmentTransaction.add(R.id.note_container, noteViewFragment, IConstant.NOTE_VIEW_FRAGMENT);
                 break;
 
             case CREATE:
                 NoteEditFragment noteCreateFragment = new NoteEditFragment();
                 setTitle(getString(R.string.create_fragment_title));
 
-                Bundle bundle = new Bundle();
-                bundle.putBoolean(NEW_NOTE_EXTRA, true);
-                noteCreateFragment.setArguments(bundle);
+                Bundle bundle1 = new Bundle();
+                bundle1.putBoolean(NEW_NOTE_EXTRA, true);
+                noteCreateFragment.setArguments(bundle1);
 
-                fragmentTransaction.add(R.id.note_container, noteCreateFragment, "NOTE_CREATE_FRAGMENT");
+                fragmentTransaction.add(R.id.note_container, noteCreateFragment, IConstant.NOTE_CREATE_FRAGMENT);
                 break;
         }
         //commit changes to that everything works

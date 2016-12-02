@@ -15,11 +15,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.github.marhary.saveurlife.ListOfNotesActivity;
-import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
+import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.database.NotebookDb;
-
+import com.github.marhary.saveurlife.models.Note;
 
 
 public class NoteEditFragment extends Fragment {
@@ -38,6 +38,11 @@ public class NoteEditFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void setArguments(Bundle args) {
+        super.setArguments(args);
+        Intent intent = args.getParcelable(IConstant.INTENT_KEY);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +64,6 @@ public class NoteEditFragment extends Fragment {
         noteCatButton = (ImageButton) fragmentLayout.findViewById(R.id.editNoteButton);
         Button savedButton = (Button) fragmentLayout.findViewById(R.id.saveNote);
 
-        // TODO: 11/21/2016 get from arguments
         Intent intent = getActivity().getIntent();
         title.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_TITLE_EXTRA, ""));
         message.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_MESSAGE_EXTRA, ""));
@@ -110,7 +114,7 @@ public class NoteEditFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 //dismisses dialog window
-                // TODO: 11/21/2016 you can use dialog from params
+                //TODO: 11/21/2016 you can use dialog from params
                 categoryDialogObject.cancel();
 
                 switch (item) {
@@ -161,7 +165,7 @@ public class NoteEditFragment extends Fragment {
 
                 if (newNote) {
                     //if its a new note create in database
-                    Note note = new Note(title.getText().toString(),message.getText().toString(),(savedButtonCategory == null) ? Note.Category.PERSONAL : savedButtonCategory);
+                    Note note = new Note(title.getText().toString(), message.getText().toString(), (savedButtonCategory == null) ? Note.Category.PERSONAL : savedButtonCategory);
                     dbAdapter.createNote(note);
                 } else {
                     //if old update
@@ -183,10 +187,5 @@ public class NoteEditFragment extends Fragment {
         });
 
         confirmDialogObject = confirmBuilder.create();
-    }
-
-    public static Fragment newInstance() {
-        // TODO: 11/21/2016 set arguments and return
-        return null;
     }
 }
