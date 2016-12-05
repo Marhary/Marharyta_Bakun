@@ -106,9 +106,9 @@ public class NoteEditFragment extends Fragment {
     }
 
     private void buildCategoryDialog() {
-        final String[] categories = new String[]{"No", "Important", "Business", "Personal", "Todo", "Shopping"};
+        final String[] categories = new String[]{IConstant.NO, IConstant.IMPORTANT, IConstant.BUSINESS, IConstant.PERSONAL, IConstant.TODO, IConstant.SHOPPING};
         AlertDialog.Builder categoryBuilder = new AlertDialog.Builder(getActivity());
-        categoryBuilder.setTitle("Choose Note Type");
+        categoryBuilder.setTitle(IConstant.CHOOSE_NOTE_TIPE);
 
         categoryBuilder.setSingleChoiceItems(categories, 0, new DialogInterface.OnClickListener() {
             @Override
@@ -151,14 +151,14 @@ public class NoteEditFragment extends Fragment {
 
     private void buildConfirmDialog() {
         AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(getActivity());
-        confirmBuilder.setTitle("Are you sure?");
-        confirmBuilder.setMessage("Are you sure you want to save the note?");
+        confirmBuilder.setTitle(IConstant.ARE_YOU_SURE);
+        confirmBuilder.setMessage(IConstant.SURE_SAVE);
 
-        confirmBuilder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+        confirmBuilder.setPositiveButton(IConstant.CONFIRM, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Log.d("Save Note", "Note title: " + title.getText() + "Note message: " +
-                        message.getText() + "Note category: " + savedButtonCategory);
+                Log.d(IConstant.SAVE_NOTE, IConstant.NOTE_TITLE + title.getText() + IConstant.NOTE_MESSAGE +
+                        message.getText() + IConstant.NOTE_CATEGORY + savedButtonCategory);
 
                 NotebookDb dbAdapter = new NotebookDb(getActivity().getBaseContext());
                 dbAdapter.open();
@@ -179,7 +179,7 @@ public class NoteEditFragment extends Fragment {
             }
         });
 
-        confirmBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        confirmBuilder.setNegativeButton(IConstant.CANCEL, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //do nothing

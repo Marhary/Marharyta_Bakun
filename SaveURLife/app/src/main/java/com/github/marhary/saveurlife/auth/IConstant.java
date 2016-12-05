@@ -28,4 +28,29 @@ public interface IConstant {
     String CACHE_SIZE = "cache size = ";
     String LENGTH = " length = ";
     String CLEAN = "Clean cache. New size ";
+    String MYLIST = "MyList";
+
+    String CANCEL = "Cancel";
+    String ARE_YOU_SURE = "Are you sure?";
+    String SURE_SAVE = "Are you sure you want to save the note?";
+    String CONFIRM = "Confirm";
+    String SAVE_NOTE = "Save Note";
+    String NOTE_TITLE = "Note title: ";
+    String NOTE_MESSAGE = "Note message: ";
+    String NOTE_CATEGORY = "Note category: ";
+    String CHOOSE_NOTE_TIPE = "Choose Note Type";
+    String NO = "No";
+    String IMPORTANT = "Important";
+    String BUSINESS = "Business";
+    String PERSONAL = "Personal";
+    String TODO = "Todo";
+    String SHOPPING = "Shopping";
+    String MENU_CLICK = "Menu Clicks";
+    String WE_PRESSED_EDIT = "We pressed edit";
+
+    String DESTROY = ", which will destroy all old data";
+    String UPGRADING = "Upgrading database from version ";
+    String TO = " to ";
+
+    String USER_ID = "user_id";
 }

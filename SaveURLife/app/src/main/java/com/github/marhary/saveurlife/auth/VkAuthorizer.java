@@ -25,7 +25,7 @@ public class VkAuthorizer {
     public int getIdFromUrl(String url) {
         url = url.replace('#','?');
         Uri uri = Uri.parse(url);
-        userId = Integer.parseInt(uri.getQueryParameter("user_id"));
+        userId = Integer.parseInt(uri.getQueryParameter(IConstant.USER_ID));
         return userId;
     }
 }

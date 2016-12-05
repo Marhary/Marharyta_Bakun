@@ -17,6 +17,7 @@ import com.github.marhary.saveurlife.ListOfNotesActivity;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.adapters.NoteAdapter;
+import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.database.NotebookDb;
 import com.github.marhary.saveurlife.models.Note;
 import com.github.marhary.saveurlife.parse.NoteJsonDeserializer;
@@ -85,7 +86,7 @@ public class ListOfNotesFragment extends ListFragment {
             case R.id.edit:
 
                 launchNoteDetailActivity(FragmentToLaunch.EDIT, rowPosition);
-                Log.d("Menu Clicks", "We pressed edit");
+                Log.d(IConstant.MENU_CLICK, IConstant.WE_PRESSED_EDIT);
                 return true;
 
             case R.id.delete:

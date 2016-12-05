@@ -3,6 +3,8 @@ package com.github.marhary.saveurlife.imageLoader;
 import android.content.Context;
 import android.os.Environment;
 
+import com.github.marhary.saveurlife.auth.IConstant;
+
 import java.io.File;
 
 class FileCache {
@@ -12,7 +14,7 @@ class FileCache {
     FileCache(Context context) {
 
         if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            cacheDir = new File(Environment.getExternalStorageDirectory(), "MyList");
+            cacheDir = new File(Environment.getExternalStorageDirectory(), IConstant.MYLIST);
         } else {
             cacheDir = context.getCacheDir();
         }

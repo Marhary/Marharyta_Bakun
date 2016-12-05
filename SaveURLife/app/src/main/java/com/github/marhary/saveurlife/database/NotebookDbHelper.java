@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.github.marhary.saveurlife.auth.IConstant;
+
 import static com.github.marhary.saveurlife.database.NotebookDb.CREATE_TABLE_NOTE;
 import static com.github.marhary.saveurlife.database.NotebookDb.NOTE_TABLE;
 
@@ -26,8 +28,8 @@ public class NotebookDbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(NotebookDbHelper.class.getName(),
-                "Upgrading database from version " + oldVersion + " to "
-                        + newVersion + ", which will destroy all old data");
+                IConstant.UPGRADING + oldVersion + IConstant.TO
+                        + newVersion + IConstant.DESTROY);
         db.execSQL("DROP TABLE IF EXISTS " + NOTE_TABLE);
         onCreate(db);
     }
