@@ -12,4 +12,6 @@
     <string name="save_note_button">Сохранить</string>
     <string name="title_preferences">Настройки</string>
     <string name="authorization">Авторизация</string>
+    <string name="images_theme">Мои картинки</string>
+    <string name="refresh_cache">Обновить</string>
 </resources>

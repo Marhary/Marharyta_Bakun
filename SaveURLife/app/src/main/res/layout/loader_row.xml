@@ -38,7 +38,7 @@
                     android:textSize="14sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="2dp"
-                    android:textColor="#000000" />
+                    android:textColor="@color/blacktext" />
             </TableRow>
             <TableRow >
                 <TextView
@@ -51,7 +51,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="4dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/blacktext"
                     android:gravity="left" />
             </TableRow>
         </TableLayout>

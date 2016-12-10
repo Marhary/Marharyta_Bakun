@@ -17,4 +17,6 @@
     <color name="whiteBar">#efdebc</color>
 
     <color name="orangesave">#ff9e00</color>
+    <color name="blacktext">#000000</color>
+    <color name="blueloader">#52c3e7</color>
 </resources>

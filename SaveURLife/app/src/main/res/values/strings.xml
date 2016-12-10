@@ -18,4 +18,6 @@
     <string name="authorization">Authorization</string>
     <string name="settings_colour">#3c3f41</string>
     <string name="my_images">My Images</string>
+    <string name="refresh_cache">Refresh cache</string>
+    <string name="images_theme">My Images</string>
 </resources>
