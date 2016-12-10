@@ -14,7 +14,7 @@ public interface IConstant {
     String NOTE_EDIT_FRAGMENT = "NOTE_EDIT_FRAGMENT";
     String BACKGROUND_COLOR = "background_color";
     String TITLE = "title";
-    String SAVEURLIFE = "SaveURLife";
+    String SAVEURLIFE = "Canimals Diary";
     String ACCESS_TOKEN = "access_token";
     String SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT";
     String MESSAGE = "message";

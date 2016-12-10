@@ -51,7 +51,7 @@ public class ListOfNotesFragment extends ListFragment {
 
         setListAdapter(noteAdapter);
 
-        getListView().setDivider(ContextCompat.getDrawable(getActivity(), android.R.color.black));
+        getListView().setDivider(ContextCompat.getDrawable(getActivity(), android.R.color.holo_blue_dark));
         getListView().setDividerHeight(1);
 
         registerForContextMenu(getListView());
