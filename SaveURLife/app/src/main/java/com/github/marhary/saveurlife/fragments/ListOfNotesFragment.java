@@ -20,8 +20,6 @@ import com.github.marhary.saveurlife.adapters.NoteAdapter;
 import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.database.NotebookDb;
 import com.github.marhary.saveurlife.models.Note;
-import com.github.marhary.saveurlife.parse.NoteJsonDeserializer;
-import com.github.marhary.saveurlife.parse.NoteJsonSerializer;
 
 import java.util.ArrayList;
 
@@ -42,13 +40,13 @@ public class ListOfNotesFragment extends ListFragment {
         dbAdapter.open();
         notes = dbAdapter.getAllNotes();
         dbAdapter.close();
-        try {
-            final String execute = new NoteJsonSerializer().execute(notes);
-            ArrayList<Note> list = new NoteJsonDeserializer().execute(execute);
-            final StringBuilder stringBuilder = new StringBuilder();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            final String execute = new NoteJsonSerializer().execute(notes);
+//            ArrayList<Note> list = new NoteJsonDeserializer().execute(execute);
+//            final StringBuilder stringBuilder = new StringBuilder();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         noteAdapter = new NoteAdapter(getActivity(), notes);
 
         setListAdapter(noteAdapter);

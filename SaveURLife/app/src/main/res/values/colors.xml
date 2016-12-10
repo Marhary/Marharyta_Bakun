@@ -3,4 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="orangeFont">#fef6c8</color>
+    <color name="orangeBar">#f6b687</color>
+
+    <color name="pinkFont">#faf6e6</color>
+    <color name="pinkBar">#ffdbde</color>
+
+    <color name="yellowFont">#f8f1df</color>
+    <color name="yellowBar">#fbec33</color>
+
+    <color name="whiteFont">#faf3e1</color>
+    <color name="whiteBar">#efdebc</color>
+
+    <color name="orangesave">#ff9e00</color>
 </resources>

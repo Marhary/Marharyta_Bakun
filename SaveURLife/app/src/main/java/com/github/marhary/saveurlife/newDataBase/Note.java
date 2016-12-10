@@ -1,17 +1,42 @@
 
-package com.github.marhary.saveurlife.models;
+package com.github.marhary.saveurlife.newDataBase;
 
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.github.marhary.saveurlife.R;
 
-public class Note {
+import java.util.Calendar;
+
+public class Note extends Model {
     private String title, message;
     private long noteId, dateCreatedMilli;
     private Category category;
 
-    public enum Category {NO, IMPORTANT, BUSINESS, PERSONAL, TODO, SHOPPING;
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_TITLE = "title";
+    public static final String COLUMN_MESSAGE = "message";
+    public static final String COLUMN_CATEGORY = "category";
+    public static final String COLUMN_DATE = "date";
+
+    @Override
+    public ContentValues convertToCV() {
+        ContentValues values = new ContentValues();
+        values.put(Note.COLUMN_TITLE, this.getTitle());
+        values.put(Note.COLUMN_MESSAGE, this.getMessage());
+        values.put(Note.COLUMN_CATEGORY, this.getCategory().name());
+        values.put(Note.COLUMN_DATE, String.valueOf(Calendar.getInstance().getTimeInMillis()));
+        return values;
+    }
+
+    @Override
+    public Model convertFromCursor(Cursor cursor) {
+        return null;
+    }
+
+    public enum Category {
+        NO, IMPORTANT, BUSINESS, PERSONAL, TODO, SHOPPING;
 
     }
 
@@ -31,7 +56,7 @@ public class Note {
         this.dateCreatedMilli = dateCreatedMilli;
     }
 
-    public Note(Cursor cursor){
+    public Note(Cursor cursor) {
         this.title = cursor.getString(1);
 
     }

@@ -19,7 +19,7 @@ import com.github.marhary.saveurlife.settings.AppPreferences;
 import com.github.marhary.saveurlife.settings.UtilPreferences;
 
 public class ListOfNotesActivity extends AppCompatActivity {
-
+    //TODO put to constant class
     public static final String NOTE_ID_EXTRA = "com.example.margo.saveurlife.Identifier";
     public static final String NOTE_TITLE_EXTRA = "com.example.margo.saveurlife.Title";
     public static final String NOTE_MESSAGE_EXTRA = "com.example.margo.saveurlife.Message";

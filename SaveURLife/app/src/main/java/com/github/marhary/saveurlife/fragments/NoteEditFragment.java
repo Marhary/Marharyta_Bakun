@@ -38,11 +38,11 @@ public class NoteEditFragment extends Fragment {
         // Required empty public constructor
     }
 
-    @Override
-    public void setArguments(Bundle args) {
-        super.setArguments(args);
-        Intent intent = args.getParcelable(IConstant.INTENT_KEY);
-    }
+//    @Override
+//    public void setArguments(Bundle args) {
+//        super.setArguments(args);
+////        Intent intent = args.getParcelable(IConstant.INTENT_KEY);
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -168,22 +168,23 @@ public class NoteEditFragment extends Fragment {
                     Note note = new Note(title.getText().toString(), message.getText().toString(), (savedButtonCategory == null) ? Note.Category.PERSONAL : savedButtonCategory);
                     dbAdapter.createNote(note);
                 } else {
+                    Note note = new Note(title.getText() + "", message.getText() + "", savedButtonCategory, noteId, 0);
                     //if old update
                     dbAdapter.updateNote(noteId, title.getText() + "", message.getText() + "", savedButtonCategory);
                 }
 
                 dbAdapter.close();
+                getActivity().onBackPressed();
 
-                Intent intent = new Intent(getActivity(), ListOfNotesActivity.class);
-                startActivity(intent);
             }
         });
 
+
         confirmBuilder.setNegativeButton(IConstant.CANCEL, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //do nothing
-            }
+           public void onClick(DialogInterface dialog, int which) {
+              //do nothing
+          }
         });
 
         confirmDialogObject = confirmBuilder.create();

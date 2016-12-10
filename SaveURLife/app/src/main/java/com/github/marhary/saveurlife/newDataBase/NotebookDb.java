@@ -1,4 +1,4 @@
-package com.github.marhary.saveurlife.database;
+package com.github.marhary.saveurlife.newDataBase;
 
 
 import android.content.ContentValues;
@@ -24,30 +24,24 @@ public class NotebookDb {
 
     private final static String[] allColumns = {COLUMN_ID, COLUMN_TITLE, COLUMN_MESSAGE, COLUMN_CATEGORY, COLUMN_DATE};
 
-    static final String CREATE_TABLE_NOTE = "create table " + NOTE_TABLE + " ( "
-            + COLUMN_ID + " integer primary key autoincrement, "
-            + COLUMN_TITLE + " text not null, "
-            + COLUMN_MESSAGE + " text not null, "
-            + COLUMN_CATEGORY + " text not null, "
-            + COLUMN_DATE + ");";
 
     private SQLiteDatabase sqlDB;
     private Context context;
 
-    private NotebookDbHelper notebookDbHelper;
+    private DbHelper dbHelper;
 
     public NotebookDb(Context ctx) {
         context = ctx;
     }
 
     public NotebookDb open() throws android.database.SQLException {
-        notebookDbHelper = new NotebookDbHelper(context);
-        sqlDB = notebookDbHelper.getWritableDatabase();
+        dbHelper = new DbHelper(context);
+        sqlDB = dbHelper.getWritableDatabase();
         return this;
     }
 
     public void close() {
-        notebookDbHelper.close();
+        dbHelper.close();
     }
 
     public Note createNote(Note note) {
@@ -76,7 +70,6 @@ public class NotebookDb {
     }
 
     public long deleteNote(Note note) {
-
         return sqlDB.delete(NOTE_TABLE, COLUMN_ID + " = " + note.getId(), null);
     }
 
@@ -91,7 +84,6 @@ public class NotebookDb {
     }
 
     public ArrayList<Note> getAllNotes() {
-
         ArrayList<Note> notes = new ArrayList<Note>();
 
         Cursor cursor = sqlDB.query(NOTE_TABLE, null, null, null, null, null, null);

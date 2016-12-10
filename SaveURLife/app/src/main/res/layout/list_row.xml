@@ -2,20 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF9F9F9"
+    android:background="@color/pinkFont"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/listItemNoteImg"
         android:src="@drawable/nocategory"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="12dp"
-        android:layout_marginRight="15dp" />
+        android:layout_marginRight="15dp"
+        android:scaleType="fitXY"/>
 
     <TextView
         android:layout_width="wrap_content"
