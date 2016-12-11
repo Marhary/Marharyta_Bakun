@@ -14,7 +14,7 @@ public interface IConstant {
     String NOTE_EDIT_FRAGMENT = "NOTE_EDIT_FRAGMENT";
     String BACKGROUND_COLOR = "background_color";
     String TITLE = "title";
-    String SAVEURLIFE = "Canimals Diary";
+    String SAVEURLIFE = "Save UR Life";
     String ACCESS_TOKEN = "access_token";
     String SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT";
     String MESSAGE = "message";
@@ -30,10 +30,6 @@ public interface IConstant {
     String CLEAN = "Clean cache. New size ";
     String MYLIST = "MyList";
 
-    String CANCEL = "Cancel";
-    String ARE_YOU_SURE = "Are you sure?";
-    String SURE_SAVE = "Are you sure you want to save the note?";
-    String CONFIRM = "Confirm";
     String SAVE_NOTE = "Save Note";
     String NOTE_TITLE = "Note title: ";
     String NOTE_MESSAGE = "Note message: ";

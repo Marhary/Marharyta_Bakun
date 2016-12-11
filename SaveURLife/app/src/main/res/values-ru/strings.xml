@@ -14,4 +14,9 @@
     <string name="authorization">Авторизация</string>
     <string name="images_theme">Мои картинки</string>
     <string name="refresh_cache">Обновить</string>
+    <string name="my_images">Мои картинки</string>
+    <string name="cancel">Отмена</string>
+    <string name="are_you_sure">Вы уверены?</string>
+    <string name="confirm">Продолжить</string>
+    <string name="sure_save">Вы уверены что хотите сохранить запись?</string>
 </resources>

@@ -20,4 +20,9 @@
     <string name="my_images">My Images</string>
     <string name="refresh_cache">Refresh cache</string>
     <string name="images_theme">My Images</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="sure_save">Are you sure you want to save the note?</string>
 </resources>

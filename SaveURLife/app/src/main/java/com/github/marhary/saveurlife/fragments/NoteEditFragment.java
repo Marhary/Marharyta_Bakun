@@ -151,10 +151,10 @@ public class NoteEditFragment extends Fragment {
 
     private void buildConfirmDialog() {
         AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(getActivity());
-        confirmBuilder.setTitle(IConstant.ARE_YOU_SURE);
-        confirmBuilder.setMessage(IConstant.SURE_SAVE);
+        confirmBuilder.setTitle(getString(R.string.are_you_sure));
+        confirmBuilder.setMessage(getString(R.string.sure_save));
 
-        confirmBuilder.setPositiveButton(IConstant.CONFIRM, new DialogInterface.OnClickListener() {
+        confirmBuilder.setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Log.d(IConstant.SAVE_NOTE, IConstant.NOTE_TITLE + title.getText() + IConstant.NOTE_MESSAGE +
@@ -180,7 +180,7 @@ public class NoteEditFragment extends Fragment {
         });
 
 
-        confirmBuilder.setNegativeButton(IConstant.CANCEL, new DialogInterface.OnClickListener() {
+        confirmBuilder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
            public void onClick(DialogInterface dialog, int which) {
               //do nothing
