@@ -3,7 +3,7 @@ package com.github.marhary.saveurlife.imageLoader;
 import android.graphics.Bitmap;
 import android.util.Log;
 
-import com.github.marhary.saveurlife.auth.IConstant;
+import com.github.marhary.saveurlife.constants.IConstant;
 
 import java.util.Collections;
 import java.util.Iterator;

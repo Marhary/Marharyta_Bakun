@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.github.marhary.saveurlife.auth.IConstant;
+import com.github.marhary.saveurlife.constants.IConstant;
 
 public class DbHelper extends SQLiteOpenHelper {
 

@@ -14,10 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.github.marhary.saveurlife.ListOfNotesActivity;
-import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
-import com.github.marhary.saveurlife.auth.IConstant;
+import com.github.marhary.saveurlife.constants.IConstantActivities;
+import com.github.marhary.saveurlife.constants.IConstantFragments;
 import com.github.marhary.saveurlife.database.NotebookDb;
 import com.github.marhary.saveurlife.models.Note;
 
@@ -50,7 +49,7 @@ public class NoteEditFragment extends Fragment {
         //grab the bundle that sends along whether creating a new note
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            newNote = bundle.getBoolean(NoteDetailActivity.NEW_NOTE_EXTRA, false);
+            newNote = bundle.getBoolean(IConstantActivities.NEW_NOTE_EXTRA, false);
         }
 
         if (savedInstanceState != null) {
@@ -65,16 +64,16 @@ public class NoteEditFragment extends Fragment {
         Button savedButton = (Button) fragmentLayout.findViewById(R.id.saveNote);
 
         Intent intent = getActivity().getIntent();
-        title.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_TITLE_EXTRA, ""));
-        message.setText(intent.getExtras().getString(ListOfNotesActivity.NOTE_MESSAGE_EXTRA, ""));
-        noteId = intent.getExtras().getLong(ListOfNotesActivity.NOTE_ID_EXTRA, 0);
+        title.setText(intent.getExtras().getString(IConstantFragments.NOTE_TITLE_EXTRA, ""));
+        message.setText(intent.getExtras().getString(IConstantFragments.NOTE_MESSAGE_EXTRA, ""));
+        noteId = intent.getExtras().getLong(IConstantFragments.NOTE_ID_EXTRA, 0);
 
         //when i change orientation category is saved
         if (savedButtonCategory != null) {
             noteCatButton.setImageResource(Note.categoryToDrawable(savedButtonCategory));
             //came from list fragment so just do everything noormaly
         } else if (!newNote) {
-            Note.Category noteCat = (Note.Category) intent.getSerializableExtra(ListOfNotesActivity.NOTE_CATEGORY_EXTRA);
+            Note.Category noteCat = (Note.Category) intent.getSerializableExtra(IConstantFragments.NOTE_CATEGORY_EXTRA);
             savedButtonCategory = noteCat;
             noteCatButton.setImageResource(Note.categoryToDrawable(noteCat));
         }
@@ -106,9 +105,9 @@ public class NoteEditFragment extends Fragment {
     }
 
     private void buildCategoryDialog() {
-        final String[] categories = new String[]{IConstant.NO, IConstant.IMPORTANT, IConstant.BUSINESS, IConstant.PERSONAL, IConstant.TODO, IConstant.SHOPPING};
+        final String[] categories = new String[]{IConstantFragments.NO, IConstantFragments.IMPORTANT, IConstantFragments.BUSINESS, IConstantFragments.PERSONAL, IConstantFragments.TODO, IConstantFragments.SHOPPING};
         AlertDialog.Builder categoryBuilder = new AlertDialog.Builder(getActivity());
-        categoryBuilder.setTitle(IConstant.CHOOSE_NOTE_TIPE);
+        categoryBuilder.setTitle(IConstantFragments.CHOOSE_NOTE_TYPE);
 
         categoryBuilder.setSingleChoiceItems(categories, 0, new DialogInterface.OnClickListener() {
             @Override
@@ -157,8 +156,8 @@ public class NoteEditFragment extends Fragment {
         confirmBuilder.setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Log.d(IConstant.SAVE_NOTE, IConstant.NOTE_TITLE + title.getText() + IConstant.NOTE_MESSAGE +
-                        message.getText() + IConstant.NOTE_CATEGORY + savedButtonCategory);
+                Log.d(IConstantFragments.SAVE_NOTE, IConstantFragments.NOTE_TITLE + title.getText() + IConstantFragments.NOTE_MESSAGE +
+                        message.getText() + IConstantFragments.NOTE_CATEGORY + savedButtonCategory);
 
                 NotebookDb dbAdapter = new NotebookDb(getActivity().getBaseContext());
                 dbAdapter.open();

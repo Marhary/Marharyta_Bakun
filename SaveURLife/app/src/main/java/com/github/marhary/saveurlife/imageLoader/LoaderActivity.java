@@ -8,7 +8,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.github.marhary.saveurlife.R;
-import com.github.marhary.saveurlife.auth.IConstant;
+import com.github.marhary.saveurlife.constants.IConstant;
 
 public class LoaderActivity extends AppCompatActivity {
 

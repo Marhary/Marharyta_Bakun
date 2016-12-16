@@ -9,21 +9,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.FrameLayout;
 
-import com.github.marhary.saveurlife.auth.IConstant;
 import com.github.marhary.saveurlife.auth.VkAuthorizer;
+import com.github.marhary.saveurlife.constants.IConstantActivities;
+import com.github.marhary.saveurlife.constants.IConstantFragments;
 import com.github.marhary.saveurlife.fragments.ListOfNotesFragment;
 import com.github.marhary.saveurlife.imageLoader.LoaderActivity;
 import com.github.marhary.saveurlife.settings.AppPreferences;
 import com.github.marhary.saveurlife.settings.UtilPreferences;
 
 public class ListOfNotesActivity extends AppCompatActivity {
-    //TODO put to constant class
-    public static final String NOTE_ID_EXTRA = "com.example.margo.saveurlife.Identifier";
-    public static final String NOTE_TITLE_EXTRA = "com.example.margo.saveurlife.Title";
-    public static final String NOTE_MESSAGE_EXTRA = "com.example.margo.saveurlife.Message";
-    public static final String NOTE_CATEGORY_EXTRA = "com.example.margo.saveurlife.Category";
 
     private int id;
 
@@ -34,7 +31,7 @@ public class ListOfNotesActivity extends AppCompatActivity {
             UtilPreferences.readPreference(this);
         }
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        id = getPreferences(MODE_PRIVATE).getInt(IConstant.ID, -1);
+        id = getPreferences(MODE_PRIVATE).getInt(IConstantActivities.ID, -1);
     }
 
     @Override
@@ -65,11 +62,6 @@ public class ListOfNotesActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AppPreferences.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.action_add_note) {
-            Intent intent = new Intent(this, NoteDetailActivity.class);
-            intent.putExtra(ListOfNotesFragment.NOTE_FRAGMENT_TO_LOAD_EXTRA, ListOfNotesFragment.FragmentToLaunch.CREATE);
-            startActivity(intent);
-            return true;
         } else if (id == R.id.authorization) {
             Intent intent = new Intent(this, AuthActivity.class);
             startActivityForResult(intent, 1);
@@ -86,12 +78,18 @@ public class ListOfNotesActivity extends AppCompatActivity {
     private void loadPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        boolean isBackgroundDark = sharedPreferences.getBoolean(IConstant.BACKGROUND_COLOR, false);
+        boolean isBackgroundDark = sharedPreferences.getBoolean(IConstantActivities.BACKGROUND_COLOR, false);
         if (isBackgroundDark) {
-            LinearLayout mainLayout = (LinearLayout) findViewById(R.id.content_main);
+            FrameLayout mainLayout = (FrameLayout) findViewById(R.id.content_main);
             mainLayout.setBackgroundColor(Color.parseColor(getString(R.string.settings_colour)));
         }
-        String notebookTitle = sharedPreferences.getString(IConstant.TITLE, IConstant.SAVEURLIFE);
+        String notebookTitle = sharedPreferences.getString(IConstantActivities.TITLE, IConstantActivities.SAVEURLIFE);
         setTitle(notebookTitle);
+    }
+
+    public void floatAdd(View view) {
+        Intent intent = new Intent(this, NoteDetailActivity.class);
+        intent.putExtra(IConstantFragments.NOTE_FRAGMENT_TO_LOAD_EXTRA, ListOfNotesFragment.FragmentToLaunch.CREATE);
+        startActivity(intent);
     }
 }

@@ -13,11 +13,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.github.marhary.saveurlife.ListOfNotesActivity;
 import com.github.marhary.saveurlife.NoteDetailActivity;
 import com.github.marhary.saveurlife.R;
 import com.github.marhary.saveurlife.adapters.NoteAdapter;
-import com.github.marhary.saveurlife.auth.IConstant;
+import com.github.marhary.saveurlife.constants.IConstant;
+import com.github.marhary.saveurlife.constants.IConstantFragments;
 import com.github.marhary.saveurlife.database.NotebookDb;
 import com.github.marhary.saveurlife.models.Note;
 
@@ -30,7 +30,6 @@ public class ListOfNotesFragment extends ListFragment {
 
     public enum FragmentToLaunch {VIEW, EDIT, CREATE}
 
-    public static final String NOTE_FRAGMENT_TO_LOAD_EXTRA = "com.example.margo.saveurlife.Fragment_To_Load";
 
     @Override
     public void onActivityCreated(Bundle saveInstanceState) {
@@ -55,6 +54,8 @@ public class ListOfNotesFragment extends ListFragment {
         getListView().setDividerHeight(1);
 
         registerForContextMenu(getListView());
+
+
     }
 
     @Override
@@ -111,17 +112,17 @@ public class ListOfNotesFragment extends ListFragment {
         Intent intent = new Intent(getActivity(), NoteDetailActivity.class);
 
         //pass information of the note which click on nDA
-        intent.putExtra(ListOfNotesActivity.NOTE_TITLE_EXTRA, note.getTitle());
-        intent.putExtra(ListOfNotesActivity.NOTE_MESSAGE_EXTRA, note.getMessage());
-        intent.putExtra(ListOfNotesActivity.NOTE_CATEGORY_EXTRA, note.getCategory());
-        intent.putExtra(ListOfNotesActivity.NOTE_ID_EXTRA, note.getId());
+        intent.putExtra(IConstantFragments.NOTE_TITLE_EXTRA, note.getTitle());
+        intent.putExtra(IConstantFragments.NOTE_MESSAGE_EXTRA, note.getMessage());
+        intent.putExtra(IConstantFragments.NOTE_CATEGORY_EXTRA, note.getCategory());
+        intent.putExtra(IConstantFragments.NOTE_ID_EXTRA, note.getId());
 
         switch (ftl) {
             case VIEW:
-                intent.putExtra(NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.VIEW);
+                intent.putExtra(IConstantFragments.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.VIEW);
                 break;
             case EDIT:
-                intent.putExtra(NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.EDIT);
+                intent.putExtra(IConstantFragments.NOTE_FRAGMENT_TO_LOAD_EXTRA, FragmentToLaunch.EDIT);
                 break;
         }
 

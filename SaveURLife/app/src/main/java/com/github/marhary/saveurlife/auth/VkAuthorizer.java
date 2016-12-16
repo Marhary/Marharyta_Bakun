@@ -3,6 +3,8 @@ package com.github.marhary.saveurlife.auth;
 
 import android.net.Uri;
 
+import com.github.marhary.saveurlife.constants.IConstant;
+
 import java.util.Locale;
 
 public class VkAuthorizer {
@@ -14,7 +16,7 @@ public class VkAuthorizer {
 
 
     public String getUrl(int appId) {
-        String link = String.format(Locale.getDefault(),IConstant.VK_URL , appId);
+        String link = String.format(Locale.getDefault(), IConstant.VK_URL , appId);
         return link;
     }
 

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.github.marhary.saveurlife.auth.IConstant;
+import com.github.marhary.saveurlife.constants.IConstant;
 
 import static com.github.marhary.saveurlife.database.NotebookDb.CREATE_TABLE_NOTE;
 import static com.github.marhary.saveurlife.database.NotebookDb.NOTE_TABLE;

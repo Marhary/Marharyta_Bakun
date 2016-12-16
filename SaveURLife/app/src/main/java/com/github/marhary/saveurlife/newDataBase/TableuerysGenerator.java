@@ -1,8 +1,6 @@
 package com.github.marhary.saveurlife.newDataBase;
 
-/**
- * Created by Margo on 12/5/2016.
- */
+
 
 public class TableuerysGenerator {
 

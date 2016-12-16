@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.marhary.saveurlife.R;
-import com.github.marhary.saveurlife.auth.IConstant;
+import com.github.marhary.saveurlife.constants.IConstant;
 
 class ImageLoadAdapter extends BaseAdapter implements OnClickListener{
 
