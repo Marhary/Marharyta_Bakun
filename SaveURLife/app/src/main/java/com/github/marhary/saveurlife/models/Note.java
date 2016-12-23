@@ -11,9 +11,7 @@ public class Note {
     private long noteId, dateCreatedMilli;
     private Category category;
 
-    public enum Category {NO, IMPORTANT, BUSINESS, PERSONAL, TODO, SHOPPING;
-
-    }
+    public enum Category {NO, IMPORTANT, BUSINESS, PERSONAL, TODO, SHOPPING}
 
     public Note(String title, String message, Category category) {
         this.title = title;
@@ -55,11 +53,6 @@ public class Note {
 
     public long getId() {
         return noteId;
-    }
-
-    public String toString() {
-        return "ID: " + noteId + " Title: " + title + " Message: " + message + " IconID: " + category.name()
-                + " Data: ";
     }
 
     public int getAssociatedDrawable() {

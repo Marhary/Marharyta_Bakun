@@ -15,6 +15,7 @@ public class NotebookDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "notebook.db";
     private static final int DATABASE_VERSION = 2;
+    private static final String DROP_TABLE_IF_EXISTS = "DROP TABLE IF EXISTS ";
 
     NotebookDbHelper(Context ctx) {
         super(ctx, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,7 +31,7 @@ public class NotebookDbHelper extends SQLiteOpenHelper {
         Log.w(NotebookDbHelper.class.getName(),
                 IConstant.UPGRADING + oldVersion + IConstant.TO
                         + newVersion + IConstant.DESTROY);
-        db.execSQL("DROP TABLE IF EXISTS " + NOTE_TABLE);
+        db.execSQL(DROP_TABLE_IF_EXISTS  + NOTE_TABLE);
         onCreate(db);
     }
 }

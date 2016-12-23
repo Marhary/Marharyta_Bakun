@@ -70,6 +70,10 @@ public class ListOfNotesActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoaderActivity.class);
             startActivity(intent);
             return true;
+        } else if (id == R.id.activity_calendar) {
+            Intent intent = new Intent(this,CalendarActivity.class);
+            startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

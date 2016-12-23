@@ -2,6 +2,7 @@ package com.github.marhary.saveurlife;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 public class ZeroActivity extends AppCompatActivity {
@@ -10,10 +11,13 @@ public class ZeroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         setContentView(R.layout.activity_zero);
-        getSupportActionBar().hide();
+        final ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.hide();
+        }
         super.onCreate(savedInstanceState);
-//
     }
+
 
     @Override
     protected void onResume() {

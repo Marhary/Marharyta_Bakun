@@ -32,13 +32,18 @@ public class ListOfNotesFragment extends ListFragment {
 
 
     @Override
+    public void onResume() {
+        super.onResume();
+        getNotes();
+        noteAdapter = new NoteAdapter(getActivity(), notes);
+
+        setListAdapter(noteAdapter);
+    }
+
+    @Override
     public void onActivityCreated(Bundle saveInstanceState) {
         super.onActivityCreated(saveInstanceState);
-
-        NotebookDb dbAdapter = new NotebookDb(getActivity().getBaseContext());
-        dbAdapter.open();
-        notes = dbAdapter.getAllNotes();
-        dbAdapter.close();
+//        getNotes();
 //        try {
 //            final String execute = new NoteJsonSerializer().execute(notes);
 //            ArrayList<Note> list = new NoteJsonDeserializer().execute(execute);
@@ -46,16 +51,20 @@ public class ListOfNotesFragment extends ListFragment {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-        noteAdapter = new NoteAdapter(getActivity(), notes);
 
-        setListAdapter(noteAdapter);
 
         getListView().setDivider(ContextCompat.getDrawable(getActivity(), android.R.color.holo_blue_dark));
         getListView().setDividerHeight(1);
 
         registerForContextMenu(getListView());
 
+    }
 
+    public void getNotes(){
+        NotebookDb dbAdapter = new NotebookDb(getActivity().getBaseContext());
+        dbAdapter.open();
+        notes = dbAdapter.getAllNotes();
+        dbAdapter.close();
     }
 
     @Override
