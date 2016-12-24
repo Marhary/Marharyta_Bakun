@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_calendar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.github.marhary.saveurlife.CalendarActivity">
+    android:orientation="vertical"
+    tools:context="com.github.marhary.saveurlife.CalendarActivity"
+    android:background="@color/greenCal"
+    android:gravity="center">
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/yLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_2016"
+        android:textSize="24sp"
+        android:textColor="@color/blueCal"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="-40dp"/>
+
+    <TextView
+        android:id="@+id/mLabel"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:text="@string/december"
+        android:textSize="24sp"
+        android:textColor="@color/blueCal"
+        android:background="@color/darkGreenCal"
+        android:gravity="center"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/dLabel"
+        android:layout_width="220dp"
+        android:layout_height="200dp"
+        android:text="@string/_23"
+        android:textSize="56sp"
+        android:textColor="@color/darkGreenCal"
+        android:background="@color/blueCal"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/eLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sat"
+        android:textSize="18sp"
+        android:textColor="@color/darkGreenCal"
+        android:layout_marginTop="-40dp"
+        android:layout_marginLeft="80dp"/>
+
+</LinearLayout>

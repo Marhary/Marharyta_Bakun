@@ -30,7 +30,7 @@ public class ListOfNotesActivity extends AppCompatActivity {
         if ((id = new VkAuthorizer().getUserId()) > 0) {
             UtilPreferences.readPreference(this);
         }
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        final SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         id = getPreferences(MODE_PRIVATE).getInt(IConstantActivities.ID, -1);
     }
 
@@ -45,19 +45,14 @@ public class ListOfNotesActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, AppPreferences.class);
             startActivity(intent);
@@ -66,16 +61,15 @@ public class ListOfNotesActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AuthActivity.class);
             startActivityForResult(intent, 1);
             return true;
-        } else if (id == R.id.loader){
+        } else if (id == R.id.loader) {
             Intent intent = new Intent(this, LoaderActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.activity_calendar) {
-            Intent intent = new Intent(this,CalendarActivity.class);
+        } else if (id == R.id.calendar) {
+            Intent intent = new Intent(this, CalendarActivity.class);
             startActivity(intent);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

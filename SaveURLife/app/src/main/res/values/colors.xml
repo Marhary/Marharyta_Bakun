@@ -19,4 +19,8 @@
     <color name="orangesave">#ff9e00</color>
     <color name="blacktext">#000000</color>
     <color name="blueloader">#52c3e7</color>
+
+    <color name="blueCal">#ffffff</color>
+    <color name="greenCal">#3fb399</color>
+    <color name="darkGreenCal">#206757</color>
 </resources>

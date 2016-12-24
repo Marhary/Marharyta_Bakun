@@ -50,7 +50,6 @@ public class Note {
         return dateCreatedMilli;
     }
 
-
     public long getId() {
         return noteId;
     }
@@ -59,7 +58,6 @@ public class Note {
         return categoryToDrawable(category);
     }
 
-    //TODO: 11/21/2016 move to category
     public static int categoryToDrawable(Category noteCategory) {
 
         switch (noteCategory) {

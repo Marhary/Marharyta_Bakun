@@ -11,7 +11,7 @@ import com.github.marhary.saveurlife.constants.IConstant;
 import static com.github.marhary.saveurlife.database.NotebookDb.CREATE_TABLE_NOTE;
 import static com.github.marhary.saveurlife.database.NotebookDb.NOTE_TABLE;
 
-public class NotebookDbHelper extends SQLiteOpenHelper {
+class NotebookDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "notebook.db";
     private static final int DATABASE_VERSION = 2;

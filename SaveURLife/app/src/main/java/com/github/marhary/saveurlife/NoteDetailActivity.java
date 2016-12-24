@@ -38,7 +38,6 @@ public class NoteDetailActivity extends AppCompatActivity {
         //choose the correct fragment to load
         switch (fragmentToLaunch) {
             case EDIT:
-                //create and add note edit fragment to note detail activity
                 NoteEditFragment noteEditFragment = new NoteEditFragment();
                 setTitle(getString(R.string.edit_note_title));
                 fragmentTransaction.add(R.id.note_container, noteEditFragment, IConstantActivities.NOTE_EDIT_FRAGMENT);
@@ -48,7 +47,6 @@ public class NoteDetailActivity extends AppCompatActivity {
                 break;
 
             case VIEW:
-                //create and add note view fragment to note detail activity
                 NoteViewFragment noteViewFragment = new NoteViewFragment();
                 setTitle(getString(R.string.all_note_title));
                 fragmentTransaction.add(R.id.note_container, noteViewFragment, IConstantActivities.NOTE_VIEW_FRAGMENT);
@@ -65,7 +63,6 @@ public class NoteDetailActivity extends AppCompatActivity {
                 fragmentTransaction.add(R.id.note_container, noteCreateFragment, IConstantActivities.NOTE_CREATE_FRAGMENT);
                 break;
         }
-        //commit changes to that everything works
         fragmentTransaction.commit();
     }
 }

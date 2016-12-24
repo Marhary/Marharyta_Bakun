@@ -43,15 +43,6 @@ public class ListOfNotesFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle saveInstanceState) {
         super.onActivityCreated(saveInstanceState);
-//        getNotes();
-//        try {
-//            final String execute = new NoteJsonSerializer().execute(notes);
-//            ArrayList<Note> list = new NoteJsonDeserializer().execute(execute);
-//            final StringBuilder stringBuilder = new StringBuilder();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
 
         getListView().setDivider(ContextCompat.getDrawable(getActivity(), android.R.color.holo_blue_dark));
         getListView().setDividerHeight(1);

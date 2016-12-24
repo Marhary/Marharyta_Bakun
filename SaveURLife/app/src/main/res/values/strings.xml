@@ -26,4 +26,8 @@
     <string name="are_you_sure">Are you sure?</string>
     <string name="sure_save">Are you sure you want to save the note?</string>
     <string name="calendar">Calendar</string>
+    <string name="sat">Sat</string>
+    <string name="_23">23</string>
+    <string name="december">December</string>
+    <string name="_2016">2016</string>
 </resources>

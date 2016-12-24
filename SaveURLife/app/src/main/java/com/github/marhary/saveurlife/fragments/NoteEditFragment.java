@@ -37,12 +37,6 @@ public class NoteEditFragment extends Fragment {
         // Required empty public constructor
     }
 
-//    @Override
-//    public void setArguments(Bundle args) {
-//        super.setArguments(args);
-////        Intent intent = args.getParcelable(IConstant.INTENT_KEY);
-//    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -113,7 +107,6 @@ public class NoteEditFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 //dismisses dialog window
-                //TODO: 11/21/2016 you can use dialog from params
                 categoryDialogObject.cancel();
 
                 switch (item) {
