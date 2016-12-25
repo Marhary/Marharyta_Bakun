@@ -30,4 +30,13 @@
     <string name="_23">23</string>
     <string name="december">December</string>
     <string name="_2016">2016</string>
+    <string name="notification">Notification</string>
+    <string name="show_notification">Show Notification</string>
+    <string name="stop_notification">Stop Notification</string>
+    <string name="alernt_in_5_seconds">Alernt in 5 Seconds</string>
+    <string name="notifications_menu">Notifications</string>
+    <string name="please_chack_your_day">Please, chack your day!!!</string>
+    <string name="notify_title">Save UR Life</string>
+    <string name="notify_message">Please, check your day</string>
+    <string name="notify_alert">Alert New Message</string>
 </resources>

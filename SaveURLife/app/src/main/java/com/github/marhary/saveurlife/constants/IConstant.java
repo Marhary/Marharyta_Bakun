@@ -25,4 +25,8 @@ public interface IConstant {
     String TO = " to ";
 
     String USER_ID = "user_id";
+
+    String TIMES_UP = "Times Up";
+    String PASSED = "5 Seconds Has Passed";
+    String ALERT = "Alert";
 }

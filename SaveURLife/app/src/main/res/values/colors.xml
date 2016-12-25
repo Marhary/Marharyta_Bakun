@@ -23,4 +23,6 @@
     <color name="blueCal">#ffffff</color>
     <color name="greenCal">#3fb399</color>
     <color name="darkGreenCal">#206757</color>
+
+    <color name="notificationcolour">#ffedd9</color>
 </resources>

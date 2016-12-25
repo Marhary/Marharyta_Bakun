@@ -17,5 +17,8 @@
     <item
         android:id="@+id/loader"
         android:title="@string/my_images"/>
+    <item
+        android:id="@+id/notification"
+        android:title="@string/notifications_menu"/>
 
 </menu>

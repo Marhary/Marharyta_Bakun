@@ -20,4 +20,11 @@
     <string name="confirm">Продолжить</string>
     <string name="sure_save">Вы уверены что хотите сохранить запись?</string>
     <string name="calendar">Календарь</string>
+    <string name="notification">Оповещение</string>
+    <string name="december"></string>
+    <string name="notifications_menu">Оповещения</string>
+    <string name="show_notification">Отправить оповещение</string>
+    <string name="stop_notification">Отменить</string>
+    <string name="alernt_in_5_seconds">Оповестить через...</string>
+    <string name="please_chack_your_day">Узнай что запланировано на сегодня!</string>
 </resources>

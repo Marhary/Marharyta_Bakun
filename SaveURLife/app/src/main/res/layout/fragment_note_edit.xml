@@ -67,6 +67,7 @@
         android:id="@+id/saveNote"
         android:background="@color/orangesave"
         android:text="@string/save_note_button"
+        android:textStyle="italic"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/messageScrollView"/>
