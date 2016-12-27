@@ -18,7 +18,7 @@ class ImageLoadAdapter extends BaseAdapter implements OnClickListener{
     private Activity activity;
     private String[] data;
     private static LayoutInflater inflater = null;
-    public ImageLoader imageLoader;
+    ImageLoader imageLoader;
 
     ImageLoadAdapter(Activity a, String[] d) {
         activity = a;

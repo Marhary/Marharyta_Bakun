@@ -61,16 +61,16 @@ public class ImageLoader {
 
     private void queueImage(String url, ImageView imageView) {
 
-        ImageToLoad p = new ImageToLoad(url, imageView);
+        ImageLoading p = new ImageLoading(url, imageView);
 
         executorService.submit(new ImagesLoader(p));
     }
 
-    private class ImageToLoad {
+    private class ImageLoading {
         String url;
         ImageView imageView;
 
-        ImageToLoad(String u, ImageView i) {
+        ImageLoading(String u, ImageView i) {
             url = u;
             imageView = i;
         }
@@ -78,27 +78,27 @@ public class ImageLoader {
 
     private class ImagesLoader implements Runnable {
 
-        ImageToLoad photoToLoad;
+        ImageLoading photoLoading;
 
-        ImagesLoader(ImageToLoad ptl) {
-            this.photoToLoad = ptl;
+        ImagesLoader(ImageLoading ptl) {
+            this.photoLoading = ptl;
         }
 
         @Override
         public void run() {
             try {
 
-                if (imageViewReused(photoToLoad))
+                if (imageViewReused(photoLoading))
                     return;
 
-                Bitmap bmp = getBitmap(photoToLoad.url);
+                Bitmap bmp = getBitmap(photoLoading.url);
 
-                memoryCache.put(photoToLoad.url, bmp);
+                memoryCache.put(photoLoading.url, bmp);
 
-                if (imageViewReused(photoToLoad))
+                if (imageViewReused(photoLoading))
                     return;
 
-                BitmapDisplayer bd = new BitmapDisplayer(bmp, photoToLoad);
+                BitmapDisplayer bd = new BitmapDisplayer(bmp, photoLoading);
 
                 handler.post(bd);
             } catch (Throwable e) {
@@ -186,7 +186,7 @@ public class ImageLoader {
         return null;
     }
 
-    private boolean imageViewReused(ImageToLoad ptl) {
+    private boolean imageViewReused(ImageLoading ptl) {
 
         String tag = imageViews.get(ptl.imageView);
 
@@ -196,9 +196,9 @@ public class ImageLoader {
     private class BitmapDisplayer implements Runnable {
 
         Bitmap bitmap;
-        ImageToLoad photoToLoad;
+        ImageLoading photoToLoad;
 
-        BitmapDisplayer(Bitmap b, ImageToLoad p) {
+        BitmapDisplayer(Bitmap b, ImageLoading p) {
             bitmap = b;
             photoToLoad = p;
         }
